@@ -1,22 +1,3 @@
-<?php
-/**
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
- *
- * @package WordPress
- */
-
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define('WP_USE_THEMES', true);
-
-/** Loads the WordPress Environment and Template */
-require('./wp-blog-header.php');
-?>
-
 <!doctype html>
 <html>
   <head>
@@ -36,7 +17,7 @@ require('./wp-blog-header.php');
     <div class="wrapper">
       <header>
         <h1>Ahmad-hub</h1>
-        <p>This is a git hub repository for Ahmad</p>
+        <p>To view the github repository please click <a href="htps://github.com/aali83/ahmad-hub">here</a></p>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
   </body>
