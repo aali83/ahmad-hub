@@ -1,0 +1,46 @@
+Attack Types: Botnet Controller
+	1) Denial Of Service
+	2) Adware
+	3) Spyware
+	4) Email Spam
+	5) Click Fraud
+	6) Brute Force Attack
+	7) Fast - Flux (advanced: dynamic DNS)
+	8) Scareware
+
+Good Password Criteria
+	1) Numbers
+	2) Symbols (check if allowed on major websites)
+	3) Uppercase and Lowercase
+	4) Higher Length
+		- At least 8 characters. Check maximum and minimum criteria from websites (tdcanadatrust, gmail, live.ca, rogers.ca, etc).
+		Hint: Check for auto password generators or better yet create one.
+
+Server Types:
+	1. Interconnected: Peer-to-peer
+	2. Centralized: Server-based
+	
+Network Models:
+	OSI: 7 Layers 
+		1. Physical
+		2. Data Link
+		3. Network
+		4. Transport
+		5. Session
+		6. Presentation
+		7. Application
+		Reverse Acronym: APST NDP
+
+IP Class: xxx.000.000.1
+	A: 1-126
+	B: 128-191
+	C: 192-223
+	D: 224-239
+	E: 240-254
+
+Dynamic Host Control Protocol (DHCP)
+	- Assigns dynamic or sometimes static IP addresses to a MAC address of a device.
+
+Subnet
+	- Create subnetwork inside a network using subnet mask.
+	

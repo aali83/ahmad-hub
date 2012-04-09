@@ -1,0 +1,10 @@
+john - 
+	/etc/john/john.conf
+		is where you configure how john will behave.
+
+	/etc/john/john-mail.msg
+		has the message sent to users when their passwords are successfully cracked.
+
+	/etc/john/john-mail.conf
+		is used to configure how john will send messages to users that had their pass‐words cracked.
+

@@ -1,0 +1,25 @@
+Network Information Gathering
+	WHOIS
+	Nmap || Zenmap (Networking/ Named Server auditing tools)
+
+Configuring NIC
+	iwconfig
+	iw
+	iwlist
+	ifconfig
+
+System Information
+	MSINFO32 - Windows
+	Msconfig - Windows
+	nslookup - DNS namespace lookup
+	trackrt - Track network hop for domain/ip
+
+Hacking Utilities
+	aircrack-ng - entire suite
+	john - John the ripper (password cracking)
+
+Malware-Botnet
+	iKee.B || duh - iPhone Botnet
+	grmnoobs.com
+
+
