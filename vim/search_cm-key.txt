@@ -1,0 +1,10 @@
+Vim Search Command Keys
++++++++++++++++++++++++
+
+%							Perform the command on all lines.
+s							Short form for the :substitute command.
+\<word\>					\< tells Vim that is the beginning of the word.
+							\> tells Vim that is the end of the word.
+								- Only exact words will be matched, no partial matches.
+g							Replaces every occurrence of the word in range specified, not just the first match.
+c							Asks for confirmation before substituting. 

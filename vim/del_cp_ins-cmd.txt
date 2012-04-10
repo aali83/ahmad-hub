@@ -1,0 +1,25 @@
+Copy / Paste / Delete Commands
+++++++++++++++++++++++++++++++
+
+Delete:
+-------
+
+dd				Delete entire line and store it in internal buffer.
+#dd				Delete n# of lines from current position and store them in internal buffer.
+d2w	/ 2dw		Delete two words in front of current cursor position.
+d2b	/ 2db		Delete two words backwards from current cursor position.
+d)				Delete from current position till the end of sentence.
+d}				Delete from current position till the end of paragraph.
+d$				Delete from current position until end of line.
+d0 / d^			Delete from current position until the beginning of line.
+
+Insert:
+-------
+
+"+gP			Paste from external buffer (i.e. Firefox).
+P				Paste from internal buffer on current line.
+
+Copy:
+-----
+yy				Yank entire line.	
+

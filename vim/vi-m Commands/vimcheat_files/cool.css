@@ -1,0 +1,465 @@
+body {
+	background: #eee url(pix/darkback.png);
+	margin: 0;
+	padding: 0;
+	color: #003;
+	font-size: 12px;
+}
+p, td, form, input {
+	font-size: 12px;
+}
+
+
+/* The NAVIGATION LINKS */
+
+div.bigtop {
+	display: block;
+	height: 66px;
+	position: absolute;
+	top: 12px;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: transparent url(pix/topstripe.gif) repeat-x;
+}
+/* The graphic above is - uhhh - gif because I need it transparent and broken browsers (=IE)
+don't quite figure out transparent PNGs */
+
+h1.navtop {
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-size: 14px;
+	text-align: right;
+	color: #005;
+	background: transparent;
+}
+img.tuxfiles {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+img.penguin {
+	display: inline;
+	margin-right: 11.5%;
+}
+div.navdiv {
+	display: block;
+	position: absolute;
+	top: 66px;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: #fff;
+	color: #006;
+	border-bottom: 1px solid #337;
+}
+div.navlinx {
+	display: block;
+	margin-top: 3px;
+	margin-bottom: 1px;
+	width: 100%;
+	padding: 0;
+}
+
+
+/* The main things containing block */
+
+div.bigback {
+	display: block;
+	position: absolute;
+	top: 96px;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* The SIDEBOXES stuff */
+
+div.sboxleft {
+	display: block;
+	position: absolute;
+	top: 18px;
+	left: 0;
+	width: 160px;
+	margin-left: 3.1%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* This is for fixing an IE 4 bug by exploiting another IE bug...
+IE 4 simply fux0rs up everything that is right positioned, so I use
+the fact that IE doesn't understand child selectors. Now every browser that
+doesn't get child selectors displays a 2-column layout instead of
+a 3-column one.
+Maybe newer IE versions can handle right positioning ok, but the guys
+at Redmond still make IE versions that don't understand child selectors.*/
+
+/* Just avoid putting anything important into the right sidebox */
+div.sboxright {
+	display: none;
+}
+html>body div.sboxright {
+	display: block;
+	position: absolute;
+	top: 18px;
+	right: 0;
+	width: 160px;
+	margin-right: 3.1%;
+	padding-left: 0;
+	padding-right: 0;
+}
+.sbtitle {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	text-align: center;
+	border: 1px solid #227;
+}
+ul.sblinx {
+	display: block;
+	margin-top: 3px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 1px;
+	padding-left: 18px;
+	color: #669;
+	background: transparent;
+}
+ul.sblinx li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+ul.sblinx a {
+	display: list-item;
+	width: 95%;
+	margin: 0;
+	padding: 0;
+}
+ul.sblinx a:link {
+	color: #008;
+	background: inherit;
+	text-decoration: none;
+	border-bottom: none;
+	list-style-type: disc;
+	list-style-image: url(pix/list.gif);
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 1px;
+}
+ul.sblinx a:visited {
+	color: #008;
+	background: transparent;
+	text-decoration: none;
+	border-bottom: none;
+	list-style-type: disc;
+	list-style-image: url(pix/list.gif);
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 1px;
+}
+ul.sblinx a:hover {
+	color: #960;
+	background: transparent;
+	text-decoration: none;
+	border-bottom: 1px solid #118;
+	list-style-type: circle;
+	list-style-image: url(pix/listhigh.gif);
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+ul.sblinx a:active {
+	color: #960;
+	background: transparent;
+	text-decoration: none;
+	border-bottom: 1px dashed #960;
+	list-style-type: circle;
+	list-style-image: url(pix/listhigh.gif);
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+ul.sblinx li.sbcurrent {
+	display: list-item;
+	width: 95%;
+	color: #960;
+	background: transparent;
+	text-decoration: none;
+	border-bottom: none;
+	list-style-type: circle;
+	list-style-image: url(pix/listhigh.gif);
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 1px;
+}
+ul.sblinx a#boxcurrent {
+	color: #960;
+}
+ul.sblinx a.link#boxcurrent {
+	color: #960;
+}
+ul.sblinx a.visited#boxcurrent {
+	color: #960;
+}
+
+
+/* The MAIN stuff */
+
+/* Top in a 3-column layout */
+div.middle31 {
+	position: static;
+	margin-top: 18px;
+	margin-right: 0;
+	padding-right: 3.1%;
+	margin-bottom: 0;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+/* Browsers that don't understand child selectors see a 2-column layout
+because they probably have problems with right positioning, too */
+html>body div.middle31 {
+	margin-right: 161px;
+	padding-right: 4.7%;
+}
+/* Bottom in a 3-column layout */
+div.middle32 {
+	position: static;
+	margin-top: 0;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 18px;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+html>body div.middle32 {
+	margin-right: 161px;
+	padding-right: 4.7%;
+}
+/* Single in a 3-column layout */
+div.middle3s {
+	position: static;
+	margin-top: 18px;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 18px;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+html>body div.middle3s {
+	margin-right: 161px;
+	padding-right: 4.7%;
+}
+
+/* Top in a 2-column layout */
+div.middle21 {
+	position: static;
+	margin-top: 18px;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+/* Bottom in a 2-column layout */
+div.middle22 {
+	position: static;
+	margin-top: 0;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 18px;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+/* Single in a 2-column layout */
+div.middle2s {
+	position: static;
+	margin-top: 18px;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 18px;
+	margin-left: 161px;
+	padding-left: 4.7%;
+}
+
+/* The one in a 1-column layout */
+div.middle1 {
+	position: static;
+	margin-top: 18px;
+	padding-right: 3.1%;
+	margin-right: 0;
+	margin-bottom: 18px;
+	padding-left: 3.1%;
+	margin-left: 0;
+}
+
+div.mainback {
+	background: #fff url(pix/textback.png) repeat;
+	color: #005;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.maintext {
+	margin: 0;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 14px;
+	background: transparent url(pix/texttopback.png) repeat-x top;
+	color: #005;
+	border: 1px solid #77a;
+}
+html>body .maintext {
+	padding-left: 6px;
+}
+.maintext p {
+	margin-bottom: 0;
+}
+div.maintext#lglossary ul {
+	margin-top: 0;
+}
+div.maintext#lglossary .mtitle2 {
+	margin-bottom: 0;
+}
+.mnonsense {
+	margin-top: 0;
+	font-size: 12px;
+}
+.mnonsense2 {
+	font-size: 12px;
+}
+.mtitle2 {
+	font-size: 12px;
+}
+
+
+/* tuXfiles stuff */
+
+div.tuxtbl {
+	margin-top: 12px;
+}
+.tuxtable, .tuxtitle {
+	border-color: #669;
+}
+.tuxtext {
+	border-color: #99c;
+}
+.tuxtable2 {
+	border: 0;
+}
+.tuxstrong {
+	margin-right: 2%;
+}
+p.glossary {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+
+/* Link stuff */
+
+.linktext {
+	width: 50%;
+	vertical-align: top;
+}
+.new {
+	margin-left: 1%;
+}
+
+
+/* FORM things */
+
+.formtext { 
+	margin-top: 16px;
+	margin-left: 7%;
+	font-weight: bold;
+	color: #336;
+	background: transparent;
+}
+.finput {
+	color: #003;
+	background: #fff url(pix/darkback.png) repeat;
+	border: 1px solid #77a;
+	font-family: Lucidatypewriter, Courier, Monospace;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 1em;
+}
+.finput:focus {
+	border: 1px solid #960;
+	line-height: 1em;
+}
+.finput:hover {
+	border: 1px solid #960;
+	line-height: 1em;
+}
+.selectlist {
+	color: #003;
+	background: #fff;
+	border: 1px solid #77a;
+	line-height: 1em;
+}
+.selectlist:focus, .selectlist:hover {
+	color: #960;
+	background: #fff;
+	border: 1px solid #960;
+	line-height: 1em;
+}
+.fbutton {
+	color: #006;
+	background: #fff;
+	border: 1px solid #337;
+	line-height: 1em;
+}
+.fbutton:focus, .fbutton:hover {
+	color: #960;
+	background: #fff;
+	border: 1px solid #960;
+	line-height: 1em;
+}
+.sbutton {
+	color: #006;
+	background: #fff;
+	border: 1px solid #337;
+	line-height: 1em;
+}
+.sbutton:focus, .sbutton:hover {
+	color: #960;
+	background: #fff;
+	border: 1px solid #960;
+	line-height: 1em;
+}
+
+
+/* SEARCH stuff */
+div.searchform {
+	line-height: 1.5em;
+}
+
+
+/* The BOTTOM BUTTONS */
+.bottompix {
+	position: static;
+	margin: 0;
+	padding-top: 6px;
+	padding-bottom: 12px;
+	width: 100%;
+	border: 0;
+	font-size: 10px;
+}
+.bottompix p {
+	font-size: 10px;
+}

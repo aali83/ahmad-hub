@@ -1,0 +1,11 @@
+/***************************
+*** List of Vim Plug-ins ***
+***************************/
+
+1. Align
+2. taglist
+	- ctags
+3. Matchit
+4. SnipMate
+5. OmniCppComplete
+

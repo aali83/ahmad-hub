@@ -1,0 +1,233 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 12px;
+}
+p, td, form, input {
+	font-size: 12px;
+}
+
+
+/* The NAVIGATION LINKS */
+
+div.bigtop {
+	display: none;
+}
+h1.navtop {
+	display: none;
+}
+img.tuxfiles {
+	display: none;
+}
+img.penguin {
+	display: none;
+}
+div.navdiv {
+	display: none;
+}
+div.navlinx {
+	display: none;
+}
+
+
+/* The main things containing block */
+
+div.bigback {
+	display: block;
+	position: static;
+}
+
+
+/* The SIDEBOXES stuff */
+
+div.sboxleft {
+	display: none;
+}
+div.sboxleft#tuxnav {
+	display: block;
+	width: 100%;
+	position: static;
+	padding-left: 2.5%;
+}
+.sbtitle {
+	background: #fff;
+	color: #000;
+	border: none;
+	text-align: left;
+}
+ul.sblinx a:link, ul.sblinx a:visited {
+	color: #000;
+}
+.sbtitle#noprint {
+	display: none;
+}
+.sblinx#noprint2 {
+	display: none;
+}
+div.sboxright {
+	display: none;
+}
+html>body div.sboxright {
+	display: none;
+}
+
+/* The MAIN stuff */
+
+/* Top in a 3-column layout */
+div.middle31 {
+	position: static;
+	margin-top: 18px;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 0;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+/* Browsers that don't understand child selectors see a 2-column layout
+because they probably have problems with right positioning, too */
+/* well at least IE 4 does */
+html>body div.middle31 {
+	margin-right: 3.1%;
+	padding-right: 0;
+}
+/* Bottom in a 3-column layout */
+div.middle32 {
+	position: static;
+	margin-top: 0;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 18px;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+html>body div.middle32 {
+	margin-right: 3.1%;
+	padding-right: 0;
+}
+/* Single in a 3-column layout */
+div.middle3s {
+	position: static;
+	margin-top: 18px;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 18px;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+html>body div.middle3s {
+	margin-right: 3.1%;
+	padding-right: 0;
+}
+
+/* Top in a 2-column layout */
+div.middle21 {
+	position: static;
+	margin-top: 18px;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 0;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+/* Bottom in a 2-column layout */
+div.middle22 {
+	position: static;
+	margin-top: 0;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 18px;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+/* Single in a 2-column layout */
+div.middle2s {
+	position: static;
+	margin-top: 18px;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 18px;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+
+/* The one in a 1-column layout */
+div.middle1 {
+	position: static;
+	margin-top: 18px;
+	margin-right: 3.1%;
+	padding-right: 0;
+	margin-bottom: 18px;
+	margin-left: 3.1%;
+	padding-left: 0;
+}
+
+div.mainback {
+	background: #fff;
+	color: #000;
+	margin-left: 0;
+	margin-right: 0;
+}
+.maintext {
+	margin: 0;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 6px;
+	background: inherit;
+	color: #000;
+	border: none;
+}
+.maintext p {
+	margin-bottom: 0;
+}
+.mnonsense {
+	margin-top: 0;
+	font-size: 12px;
+	color: #fff;
+}
+.mnonsense2 {
+	font-size: 12px;
+	color: #fff;
+}
+.mtitle {
+	font-size: 12px;
+	color: #000;
+}
+.mtitle2 {
+	font-size: 12px;
+	color: #000;
+}
+
+
+/* tuXfiles stuff */
+
+div.tuxtbl {
+	margin-top: 12px;
+}
+.tuxtable, .tuxtitle {
+	border-color: #000;
+}
+.tuxtext {
+	border-color: #000;
+}
+.tuxstrong {
+	margin-right: 2%;
+}
+.tuxinfo {
+	color: #000;
+}
+
+
+/* Link stuff */
+
+.linktext {
+	width: 50%;
+	vertical-align: top;
+}
+
+
+/* The BOTTOM BUTTONS */
+.bottompix {
+	display: none;
+}

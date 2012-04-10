@@ -1,0 +1,19 @@
+Vim Keys
+++++++++
+a		- Insert Mode: 
+b		- Movement Key:
+c		- Change/Insert Mode:
+d		- Delete (Cut) Key:						Delete content and paste it into internal buffer.
+E		- Movement Key: 
+e		- Movement Key:
+G		- Movement Key:
+g		- Global Key:
+i		- Insert Mode:
+J		- Join Lines
+O		- Insert Mode:
+o		- Insert Mode:
+P		- Paste Key:							Paste above current cursor position / on current line.
+p		- Paste Key:							Paste below current cursor position / on current line.
+u		- Undo Key
+y		- Yank (Copy) Key
+

@@ -1,0 +1,4 @@
+VIM Window Re-size:
++++++++++++++++++++
+
+	- :winsize [vertical] [horizontal]			Resizes VIM window, requires two arguments.

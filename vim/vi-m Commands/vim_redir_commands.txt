@@ -1,0 +1,14 @@
+- Change Command: Shows previous buffered changes and which lines they occured on
+    :changes
+    <#>g;   /*go to next n'th change backward (UP)*/
+    <#>g,   /*go to the previous n'th change forward (DOWN)*/
+
+
+- Redirect Command: Records input from command/buffer line and redirects it to specified file.
+    :redir > <path/filename>
+        /*enter commands, at this point redirect records any information in the buffer line*/
+    :redir END
+
+
+- Number Matching Lines and Pattern: To find out global matching pattern numbers :%s/pattern//gn
+

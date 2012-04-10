@@ -1,0 +1,10 @@
+Visual Mode
++++++++++++
+
+Visual Mode Command Key: 		v or V
+------------------------
+	- Visual mode is used for highlighting text.
+		- Place cursor at a current location and press v or V to enter visual mode.
+			* You must use keyboard movement keys to highlight text (hjkl)
+			- Then press a command.
+

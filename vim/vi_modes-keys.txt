@@ -1,0 +1,15 @@
+Mode Keys
++++++++++
+
+Insert Mode:
+------------
+a		- insert mode: append to 1 position after current cursor position.
+o		- insert mode: insert new line under cursor position and append cursor to that line.  
+O		- insert mode: insert new line on top of cursor and append cursor to that line.
+A		- insert mode: append cursor to end of current line.
+
+
+Change Mode:
+------------
+
+cc		- remove current line and enter insert mode.

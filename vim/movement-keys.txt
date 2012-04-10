@@ -1,0 +1,17 @@
+Movement Keys
++++++++++++++
+
+{#} j		- Move down 1 position
+{#} k		- Move up one position
+{#} l		- Move left one position
+{#} h		- Move right one position
+
+{#} (		- Go to the beginning of the sentence.
+{#} )		- Go to the end of the sentence.
+{#} {		- Go to the beginning of the paragraph.
+{#} }		- Go to the end of the paragraph.
+
+{#} w		- Go to the beginning of the next word.
+{#} e		- Go to the end of the next word.
+{#} b		- Go to the beginning of the previous word.
+

@@ -1,0 +1,206 @@
+/* Nutscrape 4.x sees only this style sheet. */
+
+body {
+	background: #eee url(pix/textback.png);
+	/*Note: this is a relative path to the bg image but use an absolute path here
+	because NS 4.x gets confused */
+	font-family: Lucida, Helvetica, Arial, Sans-Serif;
+	color: #000;
+}
+p, table, tr, td, form, input {
+	font-family: Lucida, Helvetica, Arial, Sans-Serif;
+}
+code {
+	font-family: Lucidatypewriter, Courier, Monospace;
+}
+a:link {
+	color: #039;
+}
+a:visited {
+	color: #669;
+}
+a:hover {
+	color: #960;
+}
+a:active {
+	color: #039;
+}
+ul {
+	list-style-type: square;
+}
+img {
+	border: 0;
+}
+
+
+/* The NAVIGATION LINKS */
+
+div.navdiv {
+	text-align: center;
+	font-weight: bold;
+}
+.navlinx a:link {
+	color: #fff;
+	text-decoration: none;
+}
+.navlinx a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+.navlinx a:hover {
+	color: #960;
+	text-decoration: none;
+}
+.navlinx a:active {
+	color: #960;
+	text-decoration: none;
+}
+.navlink {
+	color: #009;
+}
+.navlink:active {
+	color: #960;
+}
+.navnonsense {
+	color: #960;
+}
+.navcurrent {
+	color: #960;
+}
+
+
+/* The SIDEBOXES stuff */
+.sbtitle {
+	background: #fff;
+	color: #336;
+}
+li.sbcurrent {
+	color: #960;
+}
+a#boxcurrent {
+	color: #960;
+}
+a.link#boxcurrent {
+	color: #960;
+}
+a.visited#boxcurrent {
+	color: #960;
+}
+
+
+
+/* The MAIN stuff */
+.maintext a:link {
+	color: #039;
+	text-decoration: underline;
+}
+.maintext a:visited {
+	color: #669;
+	text-decoration: underline;
+}
+.maintext a:hover {
+	color: #960;
+	text-decoration: none;
+}
+.maintext a:active {
+	color: #039;
+	text-decoration: none;
+}
+.mnonsense, .mnonsense2 {
+	font-weight: bold;
+	text-indent: 2.5%;
+	color: #99c;
+}
+.mtitle {
+	color: #337;
+}
+.mtitle2 {
+	color: #337;
+}
+.mnonsense a:link {
+	color: #009;
+	text-decoration: none;
+}
+.mnonsense a:visited {
+	color: #009;
+	text-decoration: none;
+}
+.mnonsense a:hover {
+	color: #960;
+	text-decoration: underline;
+}
+.mnonsense a:active {
+	color: #339;
+	text-decoration: underline;
+}
+
+
+/* tuXfiles stuff */
+
+.tuxinfo {
+	color: #960;
+}
+.tuxexample {
+	color: #339;
+	margin-left: 5%;
+}
+.tuxexample strong {
+	color: #116;
+}
+.tuxtitle {
+	color: #226;
+	background: #fff;
+	font-weight: bold;
+}
+.tuxtext {
+	color: #004;
+}
+.glossary {
+	text-align: center;
+	font-size: 14px;
+}
+.glossary a {
+	font-weight: bold;
+}
+.gcurrent {
+	font-weight: bold;
+	color: #960;
+}
+
+
+
+/* Links stuff */
+
+.linktext {
+	font-size: 12px;
+	color: #004;
+}
+.new {
+	color: #930;
+}
+
+
+/* The BOTTOM BUTTONS */
+.bottompix {
+	text-align: center;
+}
+.bottompix p {
+	text-align: center;
+	color: #003;
+}
+.bottompix a:link {
+	color: #039;
+	text-decoration: underline;
+}
+.bottompix a:visited {
+	color: #669;
+	text-decoration: underline;
+}
+.bottompix a:hover {
+	color: #960;
+	text-decoration: none;
+}
+.bottompix a:active {
+	color: #039;
+	text-decoration: underline;
+}

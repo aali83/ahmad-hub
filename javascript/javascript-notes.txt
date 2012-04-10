@@ -1,0 +1,112 @@
+************************
+*** JavaScript Notes ***
+************************
+
+* You don't have to specify data types of a variable.
+* Data types are converted automatically as needed during script execution.
+
+* Conditional Exprssion Syntax
+	(condition) ? val1 : val2;
+
+* It's wiser to put functions in the <head> section of the document so they are read 
+and loaded before they are needed.
+
+* An object is a special kind of data. It has properties and methods.
+	- properties describe objects.
+	- methods or functions show what the object does.
+	
+
+* Built-in Objects:
+	* String Object
+		** Declaring a string object: There are two ways you can declare string objects.
+
+			var string-name = "value";
+			var string-name= new String("enter text");
+
+		** Built-in string object methods.
+			*** string-name.length
+			- returns the number of characters in a string.
+			
+			*** string-name.lcharAt(index)
+			- returns the character at the specific index.
+
+			*** string-name.lcharCodeAt(index)
+			- returns the unicode of the character in place of character. 
+
+			*** string-name.lindexOf(substring)
+			- returns the position at which the character or string begins. -1 return value means the
+			character or string is not in the string.
+
+			*** string-name.llastIndexOf(substring)
+			- returns the position at which the last occurence of your character or string is. -1 return value means the
+			character or string is not in the string.
+			
+			*** string-name.lsubstr(startIndex, subLength)
+			- returns a sub string from 'startIndex' with the length 'subLength'. (needs more clarification)
+
+			*** string-name.lsubstring(startIndex, y)
+			- returns a substring starting from index 'startIndex' (inclusive) ending at the index y (not inclusive).
+			
+			*** string-name.ltoLowerCase()
+			- converts a string to lowercase.
+			
+			*** string-name.ltoUpperCase()
+			- converts a string to uppercase.
+			
+	** Array Object
+		** Defining an array object:
+			var array_name = new Array(10);
+		
+		** Initializing an array: There are two ways you can initialize an array.
+			var array_name = new Array(2);
+			array_name[0]="Ahmad";
+			array_name[1]="John";
+
+			var array_name = new Array("ahmad", "John");
+
+		** Accessing an index of an array.
+			document.write(array_name[0]);
+		
+		** Updating an array.
+			array_name[1]="ahmad";
+
+		** Built-in array object properties.
+			*** array_name.length
+			- returns the number of occurrences in an array (how many items are in an array).
+
+			*** array_name.join(seperator)
+			- Return a string, which joins all 
+			
+		** Built-in array object methods.
+			***  
+					
+	** Date Object
+	** Math Obejct
+		http://www.w3schools.com/jsref/jsref_obj_math.asp
+
+		** Built-in Math object properties.
+			*** Math.E
+			- The E property returns the Euler's number and the base of natural logarithms, approximately 2.718.
+
+			*** Math.PI;
+			- The PI property returns the ratio of a circle's area to the square of its radius, approximately 3.14159. 
+
+			*** Math.LN2;
+			- The LN2 property returns the natural logarithm of 2, approximately 0.693. 
+
+			*** Math.LN10;
+			- The LN10 property returns the natural logarithm of 10, approximately 2.302. 
+
+			*** Math.LOG2E;
+			- The LOG2E property returns the base-2 logarithm of E, approximately 1.442. 
+
+			*** Math.LOG10E;
+			- The LOG10E property returns the base-10 logarithm of E, approximately 0.434. 
+
+			*** Math.SQRT2;
+			- The SQRT2 property returns the square root of 2, approximately 1.414. 
+
+			*** Math.SQRT1_2;
+			- The SQRT1_2 property returns the square root of 1/2, approximately 0.707. 
+
+	** Regular Expression Object.

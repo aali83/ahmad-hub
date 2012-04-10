@@ -1,0 +1,696 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+<title>Draisberghof - Software - USB_ModeSwitch</title>
+<meta name="description" content="Home of USB_ModeSwitch - Activating Switchable USB Devices on Linux">
+<meta name="author" content="Josua Dietze">
+<meta name="keywords" content="USB_ModeSwitch, USB, UMTS, 3G, HSDPA, HSUPA, Linux, libusb,
+  Option, GlobeSurfer Icon, GlobeTrotter MAX 3.6, GlobeTrotter EXPRESS, Huawei E220,
+  Huawei E270, Huawei E630, Huawei E169, ZTE MF620, ZTE MF622, ZTE MF628, ZTE MF638,
+  Onda MH600HS, Onda MDC502HS, Onda MDC525UP, ONDA MT503HS, ONDA MT505UP, Alcatel OT-X020,
+  MBD-100HU, Nuton 3.5G, Emobile D11LC, AnyDATA ADU-500A, AnyDATA ADU-510A, AnyDATA ADU-520A,
+  Novatel Wireless, Novatel MC990D, Ovation MC950D, Ovation 930D, Merlin XU950D, BandLuxe C120,
+  Solomon S3Gm-660, CDU-680, C-motech D-50, C-motech CGU-628, Toshiba G450, UTStarcom UM175,
+  Alltel, Hummer DTM5731, A-Link 3GU, Huawei E160, Huawei E160G, AT&amp;T Quicksilver, Sony Ericsson
+  MD400, Sierra Wireless AirCard, Sierra Wireless Compass, LG LDU-1900D, Samsung SGH-Z810,
+  MobiData MBD-200HU, MyWave SW006, Hyundai Mobile MB-810, Prolink PHS100, Cricket A600,
+  ZTE AC8710, ZTE AC2710, ZTE 6535-Z, Alcatel X200, Novatel U760">
+<meta name="date" content="2010-02-09T23:30:00+01:00">
+<meta name="generator" content="Notepad 2 (really! Who needs WYSIWYG ??)">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="Draisberghof%20-%20USB_ModeSwitch_files/draisbergstil.css" type="text/css">
+</head><body bgcolor="#838978">
+<img src="Draisberghof%20-%20USB_ModeSwitch_files/software.jpg" class="logo" height="56" width="318">
+<div class="navbar">
+<a href="http://www.draisberghof.de/index.html">Draisberghof</a><font class="inactive"> | </font>
+<a href="http://www.draisberghof.de/software.html">Software</a><font class="inactive"> | USB_ModeSwitch | </font>
+<a href="http://www.draisberghof.de/usb_modeswitch/bb/">ModeSwitchForum</a>
+</div>
+<div class="content">
+<h2>USB_ModeSwitch - Activating Switchable USB Devices on Linux</h2>
+&nbsp;
+<ul>
+<li>
+<a href="#intro" class="anchor">Introduction</a>
+</li>
+<li>
+<a href="#download" class="anchor">Download</a>
+</li>
+<li>
+<a href="#install" class="anchor">How to install</a>
+</li>
+<li>
+<a href="#usage" class="anchor">How to use</a>
+</li>
+<li>
+<a href="#hardware" class="anchor">Known working hardware</a>
+</li>
+<li>
+<a href="#trouble" class="anchor">Troubleshooting</a>
+</li>
+<li>
+<a href="#contrib" class="anchor">Contribute</a>
+</li>
+<li>
+<a href="#whodunit" class="anchor">Whodunit</a>
+</li>
+<li>
+<a href="#history" class="anchor">History</a>
+</li>
+</ul>
+<center>Version française <a href="http://www.bullteam.net/tutoriels/usb-modeswitch.html">
+içi</a> - merci au <a href="http://www.bullteam.net/">Bullteam</a>
+<p>
+If you don't like the text column width, adjust your browser window</p></center>
+
+
+
+<h3><a name="intro">Introduction</a></h3>
+<p>
+USB_ModeSwitch is (surprise!) a mode switching tool for controlling
+"flip flop" (multiple device) USB gear.
+</p>
+<p>
+Several new USB devices (especially high-speed wireless WAN stuff, there seems to be a chipset
+from Qualcomm offering that feature) have their MS Windows drivers onboard; when plugged in
+for the first time they act like a flash storage and start installing the driver from there.<br>
+After that (and on every consecutive plugging) this driver switches the mode
+internally, the storage device vanishes (in most cases), and a new device (like
+a USB modem) shows up. The WWAN gear maker Option calls that feature "ZeroCD (TM)".</p>
+<p>
+</p>
+As you may have guessed, hardly anything of this is documented and Linux support by the
+better part of the makers is non-existent.<br>
+On the good side, most of the known devices do work in both modes with the available
+Linux drivers like "usb-storage" or "option" (an optimized serial driver for high-speed
+modems).<br>
+That leaves the problem of the mode switching from storage to modem or whatever
+the thing is supposed to do.
+
+<p>
+Fortunately there are things like human reason, USB sniffing programs and
+"libusb". It is possible to eavesdrop the communication of the MS Windows driver,
+to isolate the command or action that does the switching and to reproduce the
+same thing under the rule of Linux or the BSD variants.
+</p>
+<p>
+USB_ModeSwitch makes the last step considerably easier by taking the important parameters
+from a configuration file and doing all the initialization and communication stuff.<br>
+Starting from version 0.9.7 it has an optional success check which spares the
+manual call of "lsusb" to note any changes after execution.<br>
+From version 1.0.3 upwards there is a simple framework for integrating the
+switching with udev (the device manager) to make it fully automatic.
+</p>
+<p>
+<b>Please read the information on this page carefully before you go around posting questions!</b>
+If you encounter a new device, it really helps to understand the principle of what is happening,
+which in turn makes it easier find out about the switching command and to add a new config entry.
+</p>
+<p>
+For hints about doing your own sniffing see paragraph <a href="#contrib">Contribute</a> below
+</p>
+<p>
+<b>Embedded deployment</b>: I recently found my little tool in the source code of the fine
+<a href="http://www.dovado.com/UMR.html">Dovado UMR</a> router, which the company publishes in
+compliance with the GPL. So if you want the power of your Wireless Broadband across your local
+network, but without the "fun" of setting up your own Linux router (as I did), consider
+investing in such a machine.<br>
+(And this is the closest thing to an ad that you will find on this page ...)
+</p>
+
+
+
+<h3><a name="download">Download</a></h3>
+
+The latest release version is <b>1.1.0</b>. The tar archive contains the source and a i586 binary
+(32 bit, GCC 4.3.2). I used libusb-0.1.12 but the "compat" library from libusb-1.0 is now working
+smoothly too.
+<p>
+Changes and updates to the config database may happen more often than new releases; most of the
+valuable knowledge about devices is contained in these files. So you better use the latest version
+linked here if it is newer than the latest program release.
+</p><ul>
+  <li>Download <a href="http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-1.1.0.tar.bz2">usb-modeswitch-1.1.0.tar.bz2</a>, dated from 2010-01-24;
+   a Debian (Xandros/Ubuntu) package should be available soon at the <a href="http://packages.debian.org/usb-modeswitch">
+   Debian Repository</a>. Many architectures are supported there (like amd64 or ia64).<br>
+  </li>
+  <li>Load the latest <a href="http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20100203.tar.bz2">usb-modeswitch-data</a> package
+   (2010-02-03). It contains the device database and the rules file, including full paths. Use this version only
+   with releases from 1.1.0 upward !
+  </li>
+  <li>The latest <a href="http://www.draisberghof.de/usb_modeswitch/usb_modeswitch.conf">usb_modeswitch.conf</a> (2010-01-24); the default place is "/etc".<br>
+   The config file is shifting it's meaning to a kind of reference as the system integration is more widely used.
+   It can help with new devices when checking out known switching commands.
+  </li>
+  <li>Don't forget <a href="http://libusb.wiki.sourceforge.net/">libusb</a> if you don't have it.
+  In your distribution, there is most likely a package named "libusb-dev" or "libusb-devel".
+  Choose the legacy version (0.1.12) or the compatible package from libusb-1.0, at the time of writing it had the
+  version number 0.1.13.
+  </li>
+</ul>
+
+
+
+<h3><a name="install">How to install</a></h3>
+
+If you have an earlier version installed, de-installation is recommended ("make uninstall").
+Several file locations changed in 1.1.0, old ones might be orphaned if not taken care of.
+
+<p>
+<b>Important:</b> you need "tcl" for the wrapper script to work; if you enter "tclsh" and you get
+a "%" prompt, you are set (to exit enter "exit"). The "tcl" package is part of all distributions
+I know.
+</p>
+<p>
+Unpack the source file (who might have thought!). In the newly created directory run as
+root or superuser:</p><pre> # make install</pre>
+This installs a config file folder "/etc/usb-modeswitch.d", a script, an
+"udev" rules file and the binary.<br>
+You are set already; if your device is known, you should be able to just plug
+it and use it. If it doesn't work we'll find out why.
+
+<p>
+For manual use just run "make". Work with the command line interface or with the original
+config file. To do the latter put "usb-modeswitch.conf" into "/etc" and edit it according
+to your hardware. It's heavily commented and should tell you what to do.
+</p>
+<p>
+Manual use is intended for testing and analyzing. See next paragraph.
+</p>
+
+
+<h3><a name="usage">How to use</a></h3>
+
+In most cases, you should be able to use your device without any interaction.
+<p>
+For testing, debugging and taming new devices from the wild, you can use the binary
+part of USB_ModeSwitch in manual mode.<br>
+There are two ways for that: using a config file or using the command line.
+</p>
+<p>
+Run "usb-modeswitch -h" to list the command line parameters. If any of them
+except -W, -D, -I and -q are used, the default config file in /etc is NOT read.
+See also the provided man page.
+</p>
+<p>
+To work with a config file, create one yourself or use the provided file as a starter
+and reference. If you put it in /etc and name it "usb_modeswitch.conf", it is found by
+the program. Otherwise, give the path and file name with the -c option
+</p>
+<p>
+<b>Important:</b> USB_ModeSwitch - like all programs using libusb - has to be run as
+root (or with "sudo") when calling it manually. Otherwise strange error messages turn up and
+things won't work.
+</p>
+<p>
+</p><p>
+The automatic approach consists of several components working together:
+</p><ul>
+  <li><b>/usr/sbin/usb_modeswitch</b> - the binary program
+   </li>
+  <li><b>/lib/udev/usb_modeswitch</b> - a wrapper script using the binary, doing
+   additional ID checking and driver loading. For this to work, the "tcl" package
+   is needed on the system.
+   </li>
+  <li><b>/lib/udev/rules.d/40-usb_modeswitch.rules</b> - the udev rules starting the wrapper
+   if a known device ID (vendor/product) is recognized
+   </li>
+  <li><b>/etc/usb_modeswitch.d</b> - a folder containing the individual setup information
+   files per device, named according to the IDs and possibly further identity tokens (to
+   resolve known ambiguities). If your device ID shows up in one of the file names, chances
+   are your device is supported even if the model or brand does not match.
+   </li>
+</ul>
+After switching and driver-loading, it is the responsibility of the system to discover
+the new (mostly serial) device.<br>
+When dealing with wireless devices, there may be issues with <b>NetworkManager</b> (or its
+<b>ModemManager</b> component) which does not seem to be overly reliable when dealing with
+USB modems.<br>
+Good results were reported by working with <b>wvdial</b>, <b>UMTSmon</b> and several tools
+providing a user interface to PPP like <b>kppp</b>; some of these programs may require a bit
+of basic knowledge though.
+<p>
+There is also a new - unusual but intriguing - concept which shortcuts the tedious path of putting
+together all components for a successful wireless broadband connection. The <b>Sakis3G</b> tool
+is a self-containing script (including among others the latest USB_ModeSwitch binary). It supports
+quite a number of providers already and is rapidly expanding. The beauty of it is that no installation
+is necessary and only a minimum of input required. Contrary to NetworkManager, it really delivers.<br>
+Check it out at Sakis' blog <a href="http://sakis.tel4u.gr/blog/sakis3g/">ToDo Forever</a>. There
+is even a HowTo for setting it up so that it connects right away when a modem is plugged in.
+</p>
+<p>
+The main hurdle for NetworkManager and others to a fully automated use of a newly switched modem
+is to find the right port for connecting. Often more than one serial port is created after switching
+(even up to five). Generally, the right one is providing an interrupt transfer endpoint.
+Unfortunately, NetworkManager does rely on other ways of probing for the correct port and
+sometimes fails. It is worth to note that the said Sakis3G tool is able to find this port quite
+easily.
+</p>
+<p>
+If you managed to get a new or badly supported device to switch correctly in manual mode, you can
+add a udev rule and a config file yourself. But <b>please</b> report it back to share it !!
+</p>
+<p>
+See <a href="#contrib">Contribute</a>.
+</p>
+
+
+<h3><a name="hardware">Known working hardware</a></h3>
+
+<b>Very important note:</b><br>
+Personally, I could only test my Option Icon and the S.E. MD400; the list here - as well as all the
+necessary data - relies on reports from third parties (people, that is). So don't
+be surprised if you hit sudden obstacles even with your device listed here.
+You have been warned.
+<p>
+There are hitherto three known methods for initiating the switching process:<br>
+</p><ol>
+<li>sending a rarely used or seemingly weird standard storage command (equivalent to those of SCSI)
+to the storage device ("eject" for example)</li>
+<li>actively removing (rather detaching) the storage driver from the device</li>
+<li>sending a certain control message to the device</li>
+</ol>
+
+<p>
+Again, <b>if you don't find the name of your device in this list, it may still be supported</b>.
+The important thing is that you find your device's USB ID in the config file folder. Have
+a look into the latest data package (See <a href="#download">Download</a>.).
+</p>
+
+<ul>
+  <li><b>All Option devices</b><br>
+   All known Option devices use the USB storage command REZERO UNIT for switching (inherited from SCSI).
+   Older devices change vendor and product ID, newer ones don't (just their device class). These newer
+   sticks have a special interface after switching (HSO) for which there is a specific driver. Some older
+   devices are able to be loaded with the new HSO firmware which changes their behaviour.<br>
+   Note: for HSO driver questions and HowTos consult the fine <a href="http://www.pharscape.org/">Pharscape</a> site!<br>
+   All Option devices come included in the config database of the new integrated version. There is no need
+   to use "<b>ozerocdoff</b>" or "<b>rezero</b>" anymore.<br>
+   There is a switching routine for Option devices in the kernel driver usb-storage (since beginning
+   of 2009). It works only for devices entered in "unusual_devs.h". More to that below.<br>
+   You can safely install USB_ModeSwitch alongside. If your Option device gets switched by the kernel
+   it just does nothing, otherwise it kicks in.
+   </li>
+  <li><b>Option GlobeSurfer iCON</b> (aka "<b>Vodafone EasyBox</b>")<br>
+   The thing that started it all, because I wanted it to work on my Linux router.<br>
+   </li>
+  <li><b>Option GlobeSurfer iCON 7.2</b><br>
+   If you get hardware lockups of this thing when plugging in (flashing LEDs), update the firmware.
+   You can probably update it to the new HSO interface
+   </li>
+  <li><b>Option GlobeTrotter HSUPA Modem</b> (aka "<b>T-Mobile wnw Card Compact III</b>")<br>
+   HSO interface
+   </li>
+  <li><b>Option GlobeTrotter GT MAX 3.6</b> (aka "<b>T-Mobile wnw Card Compact II</b>")
+   </li>
+  <li><b>Option GlobeTrotter EXPRESS 7.2</b> (aka "<b>T-Mobile wnw Card Express II</b>")
+   </li>
+  <li><b>Option GlobeTrotter GT MAX "7.2 Ready"</b><br>
+   </li>
+  <li><b>Option iCON 210</b><br>
+   Not sure if this is a generic Option design (see PROLiNK A600)
+   </li>
+  <li><b>Option iCON 225 HSDPA</b> (aka "<b>T-Mobile web'n'walk Stick</b>")<br>
+   HSO interface
+   </li>
+  <li><b>Option iCON 401</b> and <b>AT&amp;T Quicksilver</b><br>
+   HSO interface; has additional Micro SD.<br>
+   The Quicksilver looks exactly like the 401 but the product ID is different.
+   </li>
+  <li><b>Vodafone K3760</b> (an Option device, original name yet unknown)<br>
+   HSO interface
+   </li>
+  <li>All remaining <b>Option HSO devices</b><br>
+   </li>
+  <li><b>All Huawei devices</b><br>
+   Some need a custom control message and others want a custom bulk message.<br>
+   Newer kernels try to apply the control message to certain Huawei devices from the driver
+   (special treatment in usb-storage). The latest models are not supported by the kernel.<br>
+   You can safely install USB_ModeSwitch alongside. If your Huawei gets switched by the kernel
+   it just does nothing, otherwise it kicks in.
+   </li>
+  <li><b>Huawei E220</b> (aka "<b>Vodafone EasyBox II</b>", aka "<b>T-Mobile wnw Box Micro</b>")<br>
+   </li>
+  <li><b>Huawei E160</b>, <b>E160G</b>, <b>E169</b>, <b>E180</b>, <b>E230</b>, <b>E270(+)</b>,
+   <b>E280</b>, <b>E630</b>, <b>E870</b>, <b>E1550</b>, <b>E1612</b>, <b>E1662</b>, <b>E1690</b>,
+   <b>E1692</b>, <b>K3765</b>, <b>K4505</b><br>
+   </li>
+  <li><b>Huawei E630</b><br>
+   There are reportedly modem-only variants around (without the storage part); for these no switching
+   is required. 
+   </li>
+  <li><b>Novatel Wireless Ovation MC950D HSUPA</b>, <b>Ovation 930D</b> and <b>Merlin XU950D</b><br>
+   May switch with "eject &lt;device&gt;" as well
+   </li>
+  <li><b>Novatel Wireless U727</b>, <b>Novatel Wireless U760</b>, <b>Novatel MC990D</b>,
+   <b>Novatel MC760 3G</b><br>
+   </li>
+  <li><b>All ZTE devices</b><br>
+   Some ZTE devices can be switched by issueing the "eject" command to the "CD-ROM" device as well.<br>
+   Please read the last paragraph in <a href="#trouble">Troubleshooting</a>!
+   </li>
+  <li><b>ZTE MF620</b> (aka "<b>Onda MH600HS</b>")<br>
+   </li>
+  <li><b>ZTE MF622</b> (aka "<b>Onda MDC502HS</b>")<br>
+   </li>
+  <li><b>ZTE MF110</b>, <b>ZTE MF626</b>, <b>ZTE MF628</b>, <b>ZTE MF628+</b><br>
+   </li>
+  <li><b>ZTE MF636</b> (aka "<b>Telstra / BigPond 7.2 Mobile Card</b>")<br>
+   </li>
+  <li><b>ZTE MF638</b> (aka "<b>Onda MDC525UP</b>")<br>
+   </li>
+  <li><b>ZTE AC581</b><br>
+   </li>
+  <li><b>ZTE AC8710</b>, <b>ZTE AC2710</b> (EVDO, featured by PTCL)<br>
+   </li>
+  <li><b>ZTE 6535-Z</b> (featured by SFR)<br>
+   </li>
+  <li><b>ZTE K3520-Z</b>, <b>ZTE K3565</b><br>
+   </li>
+  <li><b>ONDA MT503HS</b>, <b>ONDA MT505UP</b> (most likely ZTE models)<br>
+   </li>
+  <li><b>Alcatel One touch X020</b> (aka OT-X020, aka "<b>MBD-100HU</b>", aka "<b>Nuton 3.5G</b>",
+   works with "<b>Emobile D11LC</b>")<br>
+   </li>
+  <li><b>Alcatel One touch X030</b> (aka OT-X030, aka "<b>Nuton NT36HD</b>")<br>
+   </li>
+  <li><b>Alcatel X200</b><br>
+   </li>
+  <li><b>AnyDATA ADU-500A</b>, <b>AnyDATA ADU-510A</b>, <b>AnyDATA ADU-510L</b>, <b>AnyDATA ADU-520A</b><br>
+   </li>
+  <li><b>BandLuxe C120</b><br>
+   Special treatment reportedly necessary. See
+   <a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?t=71">Forum Entry</a>
+   </li>
+  <li><b>Solomon S3Gm-660</b><br>
+   Same notes apply as with the BandLuxe C120 above
+   </li>
+  <li><b>C-motech D-50</b> (aka "<b>CDU-680</b>")<br>
+   Important notes at this
+   <a href="http://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?t=69">Forum Entry</a>
+   </li>
+  <li><b>C-motech CGU-628</b> (aka "<b>Franklin Wireless CGU-628A</b>" aka "<b>4G Systems XS Stick W12</b>")<br>
+   </li>
+  <li><b>C-motech CHU-629S</b><br>
+   </li>
+  <li><b>Toshiba G450</b><br>
+   </li>
+  <li><b>UTStarcom UM175</b>, <b>UTStarcom UM185E</b> (distributor "Alltel")<br>
+   </li>
+  <li><b>Hummer DTM5731</b><br>
+   </li>
+  <li><b>A-Link 3GU</b><br>
+   </li>
+  <li><b>Quanta MU-Q101</b>, also referred to as "<b>Quanta (NU) MU-Q101</b>"<br>
+   You probably need to do the "power suspend" trick (see <a href="#trouble">Troubleshooting</a>)
+   to make it usable
+   </li>
+  <li><b>Sierra Wireless AirCard/Compass</b> and all others<br>
+   Supported by newer kernels. If you are stuck with an older one, use USB_ModeSwitch
+   </li>
+  <li><b>Sony Ericsson MD400</b><br>
+   Special handling, takes around 25 seconds to switch
+  </li>
+  <li><b>LG LDU-1900D EV-DO (Rev. A)</b><br>
+   </li>
+  <li><b>Samsung SGH-Z810 USB</b> (with microSD card)<br>
+   </li>
+  <li><b>MobiData MBD-100HU</b>, <b>MobiData MBD-200HU</b><br>
+   </li>
+  <li><b>MyWave SW006 Sport Phone/Modem Combination</b><br>
+   </li>
+  <li><b>Hyundai Mobile MB-810</b><br>
+   Same parameters as Option iCON 210
+   </li>
+  <li><b>PROLiNK PHS100</b> (various looks)<br>
+   Same parameters as Option iCON 210
+   </li>
+  <li><b>Cricket A600</b><br>
+   Switches to ACM device. Might need a ResetUSB after switching - or not
+   </li>
+  <li><b>EpiValley SEC-7089</b> (featured by Alegro and Starcomms / iZAP)<br>
+   </li>
+  <li><b>ST Mobile Connect HSUPA USB Modem</b><br>
+   </li>
+  <li><b>D-Link DWM-162-U5</b><br>
+   </li>
+  <li><b>Philips TalkTalk, HuaXing E600 (NXP Semiconductors "Dragonfly")</b><br>
+   </li>
+  <li><b>Motorola 802.11 bg WLAN (TER/GUSB3-E)</b><br>
+   </li>
+  <li><b>Sagem F@ST 9520-35-GLR</b><br>
+   </li>
+  <li><b>Nokia CS-15</b><br>
+   </li>
+  <li><b>Vodafone MD950 (Wisue Technology)</b><br>
+   </li>
+  <li><b>Siptune LM-75 ("LinuxModem")</b><br>
+   </li>
+  <li><b>Zydas ZD1211RW WLAN USB</b><br>
+   Switching code will be removed from the kernel driver in the 2.6.32 series
+   </li>
+  <li><b>Sphairon HomeLink 1202</b><br>
+   </li>
+  <li><b>Vertex Wireless 100 Series</b><br>
+   </li>
+  <li><b>AVM Fritz!Wlan USB Stick N</b><br>
+   This will switch itself after a (long) while with no action from outside;
+   with USB_ModeSwitch or "eject" the change happens immediately after plugging
+   </li>
+  <li><b>InfoCert Business Key</b> (SmartCard/Reader emulation)<br>
+   </li>
+</ul>
+
+
+
+
+<h3><a name="trouble">Troubleshooting</a></h3>
+
+<b>Note: if you still need support after having followed the advice on this page, please
+use the forum!</b>
+<p>
+For debugging of the automated system integration, edit (as root or su)
+<b>/lib/udev/usb_modeswitch</b> in a text editor and change the line </p><pre> set logging 0</pre>
+to <pre> set logging 1</pre>This gives you a verbose output of the hotplug activity to
+<b>/var/log/usb_modeswitch_&lt;device&gt;</b>.
+
+<p>
+If you're next to certain that you have the right values for your device, followed
+all the hints (see <a href="#hardware">Known working hardware</a>), 
+and USB_ModeSwitch seems to do something run after run but to no effect, there
+are most likely system issues involved.
+</p>
+<p>
+The first suspects are system rules for modems which handle things not quite
+correctly.<br>
+If you own a device with the unswitched ID of <b>05c6:1000</b>, it will most likely
+get a wrong switching command. There are four different types of switching devices,
+all with that same ID; in the big distributions they are all treated alike as a
+model from "Option" (the manufacturer) which is wrong in three out of four cases.
+There are even cell phones with that ID which get the same treatment when connected
+to an USB port.
+</p>
+<p>
+To fix problems like that you can try to remove rules files from "/lib/udev/rules.d"
+which contain calls to "modem-modeswitch".<br>
+USB_ModeSwitch will do additional checks beside the USB ID and treat all known 
+ambiguous devices in the right way. Furthermore, it leaves unknown devices with
+the <b>05c6:1000</b> ID alone.
+</p>
+<h4>Kernel related issues</h4>
+In some newer kernels, certain device families (some Option, some Huawei, some ZTE from 2.6.26 to 2.6.28)
+get a special treatment in the usb-storage code to enable switching right away. You would not need
+USB_ModeSwitch anymore for these specific dvices; on the other hand you have no choice of accessing
+the "CD-ROM" part of your device. Plus, there were cases when the special treatment brought
+no results and furthermore prevented USB_ModeSwitch to work properly afterwards (happened with
+ZTE devices, error "-2").
+<p>
+In case of trouble, look into "unusual_devs.h" in the "drivers/usb/storage" folder of
+your kernel source. If your default ID (vendor and product ID of the storage part) can be found there and
+you get errors when running USB_ModeSwitch, try first to blacklist "usb-storage".<br>
+If that helps, you should consider rebuilding your kernel with the entry in "unusual_devs.h" deactivated.
+The only thing that will happen is that usb-storage works in the default way afterwards.<br>
+I found a <a href="http://ru.gentoo-wiki.com/wiki/MF626">tip</a> in the Russian Gentoo wiki to do exactly what I just
+ suggested for the <b>ZTE MF626</b>.
+</p>
+<p>
+Annother way of influencing the kernel behaviour is the parameter "delay_use" of
+"usb-storage" which sets the time in seconds after plugging when the storage device will
+actually be used (and probably automounted). The default value is 5; this might affect
+the switching result under certain conditions.<br>
+To change the default add in /etc/modprobe.conf:
+</p><pre> options usb-storage delay_use=1 (or 10, or other)</pre>
+I will try and monitor - possibly influence - further kernel development to prevent unpleasant
+surprises in the future.<br>
+Between the kernel USB developers there is a consensus about future removal of any switching
+code from the kernel if the "userspace" handling is broadly working and available.
+
+
+<h3><a name="contrib">Contribute</a></h3>
+
+
+USB_ModeSwitch comes quite handy for experimenting with your own hardware if not supported yet.
+You could try this approach:
+<p>
+Note the device's Vendor and Product ID from /proc/bus/usb/devices (or from
+the output of "lsusb"); the assigned driver is usually "usb-storage".
+Then try spying out the USB communication to the device with the same ID inside M$ Windoze.<br>
+I recommend this tool: "SniffUSB" (<a href="http://www.pcausa.com/Utilities/UsbSnoop/default.htm">http://www.pcausa.com/Utilities/UsbSnoop/default.htm</a>).<br>
+</p>
+This is the extremely short version. There is a very good case example from Mark A. Ziesemer here:<br>
+<a href="http://blogger.ziesemer.com/2008/10/alltel-um175al-usb-evdo-ubuntu.html">Alltel UM175AL USB EVDO under Ubuntu Hardy Heron</a>
+<p>
+Please post any improvements, new device information and/or bug reports to the <a href="http://www.draisberghof.de/usb_modeswitch/bb/">ModeSwitchForum</a> !<br>
+If you know about a new device configuration you can also send me an old-fashioned - and at your demand confidential - e-mail
+(see below).
+</p>
+
+
+
+<h3><a name="whodunit">Whodunit</a></h3>
+
+Copyright (C) 2007, 2008, 2009, 2010
+<ul>
+   <li>Josua Dietze (usb_admin at this domain)
+</li></ul>
+Please use the forum for support questions! Only for personal/confidential messages
+mail me directly.<br>
+
+<h4>Other contributors</h4>
+
+Command line parsing, decent usage/config output and handling, bugfixes added by: 
+ <ul>
+   <li>Joakim Wennergren (jokedst) (gmail.com)</li>
+</ul>
+TargetClass parameter implementation to support new Option devices/firmware:
+ <ul>
+   <li>Paul Hardwick (<a href="http://www.pharscape.org/">http://www.pharscape.org</a>)
+</li></ul>
+Created with initial help from:
+ <ul>
+   <li>"usbsnoop2libusb.pl" by Timo Lindfors (<a href="http://iki.fi/lindi/usb/usbsnoop2libusb.pl">http://iki.fi/lindi/usb/usbsnoop2libusb.pl</a>)</li>
+</ul>
+Config file parsing stuff borrowed from:
+ <ul>
+   <li>Guillaume Dargaud (<a href="http://www.gdargaud.net/Hack/SourceCode.html">http://www.gdargaud.net/Hack/SourceCode.html</a>)</li>
+</ul>
+Hexstr2bin function borrowed from:
+<ul>
+  <li>Jouni Malinen (<a href="http://hostap.epitest.fi/wpa_supplicant">http://hostap.epitest.fi/wpa_supplicant</a>, from "common.c")</li>
+</ul>
+Code, ideas and other input from:
+ <ul>
+   <li>Aki Makkonen</li>
+   <li>Denis Sutter</li>
+   <li>Lucas Benedi&#269;i&#269;</li>
+   <li>Roman Laube</li>
+   <li>Luigi Iotti</li>
+   <li>Vincent Teoh</li>
+   <li>Tommy Cheng</li>
+   <li>Daniel Cooper</li>
+   <li>Andrew Bird</li>
+   <li>Yaroslav Levandovskiy</li>
+   <li>Sakis Dimopoulos</li>
+</ul>
+More contributors (device specific) are listed in the config file. Thanks to everyone
+at the forum too! Sometimes it takes huge amounts of patience to succeed ...
+
+
+
+<h3><a name="history">History</a></h3>
+
+
+Version 1.1.0, 2010/01/24<br>
+<div style="padding-left: 1.5em;">
+  <b>Attention: wrapper script location changed, uninstall old versions!</b>
+  Major fixes in the wrapper script (stabilizing and time-saving);
+  back to unified installation, defaults to "integrated" approach;
+  new -D parameter to enable "integrated" behaviour; bugs fixed in
+  success check; man file included (borrowed from the Debian package);
+  C code and binary works with the compat library from libusb-1.0;
+  some new devices</div>
+Version 1.0.7, 2010/01/06<br>
+<div style="padding-left: 1.5em;">
+  Bug fixed for Sony mode, thanks to Marco Chiaranda; fix for parameter
+  substitution in newer udev versions, fix for bad bug in wrapper script
+  practically disabling automatic mode</div>
+Version 1.0.6, 2009/12/21<br>
+<div style="padding-left: 1.5em;">
+  New "GCT Mode", fixes for device quirks (NXP Dragonfly), fix for multiple
+  Huawei devices, cleanups, loads of new devices in config file and database,
+  minor tcl script changes</div>
+Version 1.0.5, 2009/08/26<br>
+<div style="padding-left: 1.5em;">
+  More changes and fixes regarding success check; "--version" option; config "database" updated</div>
+Version 1.0.4, 2009/08/23<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Success check bugs (and others) fixed<br>
+Version 1.0.3, 2009/08/20<br>
+<div style="padding-left: 1.5em;">
+  Success check improved; experimental system integration (fully automated),
+  optional; new parameter "TargetProductList" needed for this; other necessary
+  small adaptations; more devices</div>
+Version 1.0.2, 2009/06/09<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Some output bugs fixed<br>
+Version 1.0.1, 2009/06/08<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Added output of descriptor strings for further identification<br>
+Version 1.0.0, 2009/06/03
+<div style="padding-left: 1.5em;">
+  <b>Attention: possible incompatibilities for command line control!</b>
+  On/off flags don't require arguments anymore (-H, -S, -O, -d, -R, -n, new: -I), meaning
+  "-R 0" does a reset like "-R 1" or "-R"; long option names changed to standard format
+  (e.g. --HuaweiMode to --huawei-mode); added device inquiry, for future help with device
+  identification; catch error -19 as possible success; send and response
+  endpoints now autoselected (consequently NeedResponse is back);
+  code cleanup; new devices</div>
+Version 0.9.7, 2009/04/15<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Updated SonyMode, MD 400 now stable; automatic default endpoint detection from
+Andrew Bird<br>
+Version 0.9.7beta, 2009/03/15<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Major code clean up, optional success control (both suggested by Daniel Cooper), new devices<br>
+Version 0.9.6, 2009/01/08<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Special modes added for Sierra and Sony Ericsson, new devices<br>
+Version 0.9.5, 2008/10/27<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New options for USB tuning added (jokedst), lots of new devices, clean up<br>
+Version 0.9.4, 2008/06/09<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Compat fix for libusb on FreeBSD quirks, more devices<br>
+Version 0.9.4beta2, 2008/03/19<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Udev 'release' fix<br>
+Version 0.9.4beta, 2008/03/16<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Multiple device support<br>
+Version 0.9.3, 2008/03/09<br>
+&nbsp;&nbsp;&nbsp;&nbsp;More devices, no other changes from 0.9.3beta<br>
+Version 0.9.3beta, 2007/12/30<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New TargetClass parameter for recent Option firmware (Paul Hardwick), more devices<br>
+Version 0.9.2, 2007/11/02<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New Huawei mode (code from Miroslav Bobovsky, added by Denis Sutter), more devices<br>
+Version 0.9.1beta, 2007/09/11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Added command line parsing (jokedst), cleaned up config stuff
+(jokedst), bug fixes, doc updates <br>
+Version 0.9beta, 2007/08/12<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Name change from "icon_switch", parameter file and generalizing<br>
+Version 0.2, 2006/09/25<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Code cleaning, more messages<br>
+Version 0.1, 2006/09/24<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Just very basic functionality ...<br>
+
+
+
+
+<h3>Legal</h3>
+<p>
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+</p>
+<p>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details:<br>
+<a href="http://www.gnu.org/licenses/gpl.txt">http://www.gnu.org/licenses/gpl.txt</a>
+</p>
+<center>Page last revised: 2010-02-09</center>
+</div>
+</body></html>

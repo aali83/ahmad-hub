@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Author" content="Vic Laurie">
+<meta name="description" content="The syntax and use of the command 
+&quot;Xcopy&quot; is described">
+<title>The Windows command Xcopy and its uses </title>
+<link href="xcopy_windows_prompt_files/2col.css" rel="stylesheet" 
+type="text/css">
+<style type="text/css">
+code{display:block; margin-left:3em;}
+code.n {display:inherit; margin-left:0;}
+</style>
+
+</head><body background="xcopy_windows_prompt_files/bgbluegrain.gif">
+<div id="header"><img src="xcopy_windows_prompt_files/command.gif" 
+alt="The Command Line in Windows" width="900" height="100"></div>
+<div id="frame">
+<div id="left"><div id="sale">
+This entire site is now available as a PDF for $5. Click below to 
+receive file by email.
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input name="encrypted" value="-----BEGIN 
+PKCS7-----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-----END
+ PKCS7-----
+" type="hidden">
+<input src="xcopy_windows_prompt_files/btn_buynowCC_LG.gif" 
+name="submit" alt="PayPal - The safer, easier way to pay online!" 
+type="image" border="0">
+<img alt="" src="xcopy_windows_prompt_files/pixel.gif" width="1" 
+border="0" height="1">
+</form>
+
+</div>
+
+<h3>Site navigation</h3>
+<ul>
+<li><a href="http://commandwindows.com/index.html">Home</a></li>
+<li><a href="http://commandwindows.com/assoc.htm">Assoc and Ftype</a></li>
+<li><a href="http://commandwindows.com/batch.htm">Batch files- basics</a></li>
+<li><a href="http://commandwindows.com/batchfiles-branching.htm">Batch 
+files - branching </a></li>
+<li><a href="http://commandwindows.com/batchfiles-iterating.htm">Batch 
+files- iterating</a></li>
+<li><a href="http://commandwindows.com/command1.htm">Command Line- 
+Introduction</a></li>
+<li><a href="http://commandwindows.com/command3.htm">Command line list 
+and reference</a></li>
+<li><a href="http://commandwindows.com/command2.htm">Commands that 
+everybody can use</a></li>
+<li><a href="http://commandwindows.com/configure.htm">Configuring the 
+command prompt window</a></li>
+<li><a href="http://commandwindows.com/doskey.htm">Doskey</a></li>
+<li><a href="http://commandwindows.com/fsutil.htm">File system utility- 
+Fsutil</a></li>
+<li><a href="http://commandwindows.com/netservices.htm">Net Services</a></li>
+<li><a href="http://commandwindows.com/netstat.htm">Netstat</a></li>
+<li><a href="http://commandwindows.com/netsh.htm">Network Services Shell</a></li>
+<li><a href="http://commandwindows.com/powershell.htm">PowerShell</a></li>
+<li><a href="http://commandwindows.com/recovery.htm">Recovery Console</a></li>
+<li><a href="http://commandwindows.com/recovery-console-commands.htm">Recovery
+ Console- Commands </a></li>
+<li><a href="http://commandwindows.com/reg.htm">Registry editor console</a></li>
+<li><a href="http://commandwindows.com/scripts.htm">Scripts in the 
+command line</a></li>
+<li><a href="http://commandwindows.com/server2003tools.htm">Server 2003 
+tools for XP</a></li>
+<li><a href="http://commandwindows.com/sc.htm">Service Controller 
+Command (SC)</a></li>
+<li><a href="http://commandwindows.com/shell.htm">Shell command</a></li>
+<li><a href="http://commandwindows.com/runline.htm">Start-Run line</a></li>
+<li><a href="http://commandwindows.com/supporttools.htm">Support tools</a></li>
+<li><a href="http://commandwindows.com/tasklist.htm">Tasklist</a></li>
+<li><a href="http://commandwindows.com/tcpiputil.htm">TCP/IP networking 
+tools</a></li>
+<li><a href="http://commandwindows.com/tipsandtricks.htm">Tips for using
+ the command shell</a></li>
+<li><a href="http://commandwindows.com/taskkill.htm">Tskill and Taskkill</a></li>
+<li><a href="http://commandwindows.com/variables.htm">Variables and 
+"Set"</a></li>
+<li><a href="http://commandwindows.com/vista-commands.htm">Vista command
+ list</a></li>
+<li><a href="http://commandwindows.com/vista-tips.htm">Vista command 
+line tips</a></li>
+</ul>
+<h3>Related links</h3>
+<ul> 
+<li><a href="http://vlaurie.com/" target="_blank">Computer Education</a></li>
+<li><a href="http://surfthenetsafely.com/" target="_blank">Surf the 
+Internet Safely</a></li>
+<li><a href="http://tips.vlaurie.com/" target="_blank">Blog with tips</a></li>
+
+<li><a href="http://winbeginners.com/" target="_blank">Windows for 
+Beginners</a></li>
+	      
+<li><a href="http://registryonwindows.com/" target="_blank">Windows 
+Registry </a></li>
+</ul>
+</div>
+<div id="main">
+<div id="title"><a name="top"></a>Xcopy and its Application</div>
+<div id="summary">The syntax and use of the command "Xcopy" is 
+described.</div>
+<div class="text">
+<p>Of all the command line executables, Xcopy is one of the most useful 
+ for the average home PC user. It provides a powerful and versatile 
+method for copying and backing up files and directories. </p>
+<h2>Syntax of Xcopy command</h2>
+<p>Xcopy has a large number of possible switches, which gives the 
+command a great deal of flexibility. The syntax for the command is given
+ by: </p>
+<code>XCOPY source [destination] [/A | /M] [/D[:date]] [/P] [/S [/E]] 
+[/V] [/W]
+  [/C] [/I] [/Q] [/F] [/L] [/G] [/H] [/R] [/T] [/U]
+  [/K] [/N] [/O] [/X] [/Y] [/-Y] [/Z]
+  [/EXCLUDE:file1[+file2][+file3]...]
+</code>
+<p>Upper case letters have been used above but the command is 
+case-insensitive. A description of the various switches is given in 
+Table I. Note that Windows Vista has an additional switch "/B". The 
+function of this switch is to copy a Symbolic Link itself instead of the
+ target of the link.</p>
+<table width="100%" border="1" cellpadding="4" cellspacing="4">
+  <caption>
+  Table I. Description of switches for the command Xcopy
+  </caption>
+  <tbody><tr bgcolor="#cccccc">
+    <th>Switch</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>/A</td>
+    <td>Copies only files with the archive attribute set,
+doesn't change the attribute. </td>
+  </tr>
+  <tr>
+    <td>/M</td>
+    <td>Copies only files with the archive attribute set,
+turns off the archive attribute. Useful in backup.</td>
+  </tr>
+  <tr>
+    <td>/D:m-d-y</td>
+    <td>Copies files changed on or after the specified date.
+If no date is given, copies only those files whose
+source time is newer than the destination time. Useful in backup.</td>
+  </tr>
+  <tr>
+    <td>/P</td>
+    <td>Prompts you before creating each destination file.</td>
+  </tr>
+  <tr>
+    <td>/S</td>
+    <td>Copies directories and subdirectories except empty ones.</td>
+  </tr>
+  <tr>
+    <td>/E</td>
+    <td>Copies directories and subdirectories, including empty ones.
+Same as /S /E. May be used to modify /T.</td>
+  </tr>
+  <tr>
+    <td>/V</td>
+    <td>Verifies each new file. Not used by Windows XP.</td>
+  </tr>
+  <tr>
+    <td>/W</td>
+    <td>Prompts you to press a key before copying.</td>
+  </tr>
+  <tr>
+    <td>/C</td>
+    <td>Continues copying even if errors occur.</td>
+  </tr>
+  <tr>
+    <td>/I </td>
+    <td> If destination does not exist and copying more than one file,
+assumes that destination must be a directory.</td>
+  </tr>
+  <tr>
+    <td>/Q</td>
+    <td> Does not display file names while copying.</td>
+  </tr>
+  <tr>
+    <td>/F</td>
+    <td>Displays full source and destination file names while copying.</td>
+  </tr>
+  <tr>
+    <td>/L</td>
+    <td>Displays files that would be copied.</td>
+  </tr>
+  <tr>
+    <td>/G</td>
+    <td> Allows the copying of encrypted files to destination that does
+not support encryption.</td>
+  </tr>
+  <tr>
+    <td>/H</td>
+    <td>Copies hidden and system files also.</td>
+  </tr>
+  <tr>
+    <td>/R</td>
+    <td>Overwrites read-only files.</td>
+  </tr>
+  <tr>
+    <td>/T</td>
+    <td>Creates directory structure, but does not copy files. Does not
+include empty directories or subdirectories.</td>
+  </tr>
+  <tr>
+    <td>/U</td>
+    <td>Copies only files that already exist in destination.</td>
+  </tr>
+  <tr>
+    <td>/K</td>
+    <td>Copies attributes. Normal Xcopy will reset read-only attributes.</td>
+  </tr>
+  <tr>
+    <td>/N</td>
+    <td>Copies using the generated "short" names. May be necessary when 
+copying from NTFS to FAT16. </td>
+  </tr>
+  <tr>
+    <td>/O</td>
+    <td>Copies file ownership and ACL information.</td>
+  </tr>
+  <tr>
+    <td>/X</td>
+    <td>Copies file audit settings (implies /O).</td>
+  </tr>
+  <tr>
+    <td>/Y</td>
+    <td>Suppresses prompting to confirm that you want to overwrite an
+existing destination file. May be preset in the COPYCMD environment 
+variable</td>
+  </tr>
+  <tr>
+    <td>/-Y</td>
+    <td>Prompts to confirm you want to overwrite an
+existing destination file.</td>
+  </tr>
+   <tr>
+    <td>/Z</td>
+    <td>Copies over a network in restartable mode. </td>
+  </tr>
+   <tr>
+    <td>/EXCLUDE:file1[+file2][+file3]...</td>
+    <td>Specifies a list of files containing strings to be excluded. 
+Tricky to use. See below. </td>
+  </tr>
+</tbody></table>
+<h2>Applications of Xcopy</h2>
+<p>Xcopy provides an excellent tool for backing up selected folders. 
+With appropriate switches, a variety of backup scenarios can be created.
+ One possible backup configuration would be to copy only those files 
+that have been changed. Here is an example command: <code>xcopy 
+C:\somefolder E:\backupfolder /D /E /C /R /H /I /K /Y</code> This 
+command will copy all files, including those in sub-folders, that are 
+newer in the source folder. It will copy hidden as well as read-only 
+files and will create the destination folder and/or sub-folders if they 
+do not already exist.</p>
+<p>The next  example shows the use of a wildcard; it collects  all files
+ of a given type and copies them into one place. The command <code>xcopy
+ C:\*.mp3 E:\mp3folder /S /I /C &gt; E:\mp3List.txt</code> will collect 
+all MP3 files on the C: drive and copy them to a folder on the E: drive.
+ It also creates a list of the files copied and places the list on the 
+E: drive. This simple command preserves the sub-folder structure. If 
+desired, a more advanced script could be written that places all MP3 
+files in one folder with no sub-folders.</p>
+<h2>Excluding files and folders</h2>
+<p>A useful feature of Xcopy is the ability to exclude certain files 
+and/or folders from being copied by means of the "/Exclude" switch. All 
+names containing a given string of characters can be excluded. 
+Unfortunately, <a 
+href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/xcopy.mspx?mfr=true"
+ target="_blank">Microsoft's description</a> of  the switch is neither a
+ model of clarity nor accurate. In fact, postings on the Internet 
+indicate considerable confusion exists about how to implement this handy
+ feature. Perhaps the list below will help clarify how to use it. </p>
+<ol>
+<li>The strings contained in the  names of the files and/or folders to 
+be excluded are not entered directly in the command switch itself.</li>
+<li>The entry in the command switch is one or more text files that list 
+the strings to be excluded.</li>
+<li>The format of the switch is <code>/Exclude:{path}list_of_exclusions.txt</code>
+ Note the colon between Exclude and the name of the file that lists the 
+exclusions. Although more than one exclusion file  can be used, stick 
+with one if you can. </li>
+<li>The name of the file that lists exclusions cannot have spaces. 
+Quoting does not help.</li>
+<li>Be careful with pathnames. Remember that operations are relative to 
+the working directory for the command prompt. I suggest placing the 
+exclusion list in the top directory of the directories being copied and 
+opening the command prompt in the directory just above the directory and
+ sub-directories to be copied. (<a 
+href="http://commandwindows.com/command2.htm">Go here if you don't know 
+how</a> to open the command prompt wherever you want.) The various 
+relative paths will then be simple. If you open the command prompt in 
+the default location, things can get complicated. </li>
+<li>The structure of the exclusions list is one exclusion string per 
+line. Wildcards are not used and do not work. If you want to exclude all
+ files whose names contain ABC, simply place ABC on one line of the 
+exclusion file. If it is being used together  with the switch "/S", the 
+exclusion file will apply to sub-directories as well as the main 
+directory. </li>
+<li>To exclude a particular sub-directory, place its name in the 
+exclusion file with backward slashes before and after its name, <em>viz.</em>,
+ <code>\excluded_directory\</code></li>
+<li>Use a text editor to create exclusion files. Do not use Microsoft 
+Word or other word processor unless you are careful to create text 
+files. Use ANSI encoding. When I tried UTF-8 encoding, the file did not 
+work. </li>
+</ol>
+<h2>Exit codes for Xcopy</h2>
+<p>Many commands issue integer exit codes to indicate the status of the 
+command after it is run. The exit codes for Xcopy are given in Table II.
+ When placed in <a 
+href="http://commandwindows.com/batchfiles-branching.htm">"If" 
+statements</a>,  these error codes can be useful in batch files . </p>
+<table width="90%" border="1" cellpadding="4" cellspacing="4">
+  <caption>
+  Table II. Exit codes for Xcopy
+  </caption>
+    <tbody><tr bgcolor="#cccccc">
+      <th>Exit code</th>
+      <th>Description</th>
+    </tr>
+ 
+    <tr>
+      <td>0</td>
+      <td>Files were copied without error.</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>No files were found to copy.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The user pressed Ctrl+C to terminate <b>xcopy</b>.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Various errors including insufficient memory or disk space, an
+ invalid drive name, or invalid syntax.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Disk write error occurred.</td>
+    </tr>
+  
+</tbody></table>
+<p class="bolder"><a href="#top">Back to top</a></p>
+</div>
+</div>
+<!---end main-->
+<div id="footer">
+
+&lt;&nbsp;<a href="http://commandwindows.com/index.html">Home</a>&nbsp; |
+ &nbsp;©2002-2010 Victor Laurie 
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=1515382; 
+var sc_invisible=1; 
+var sc_partition=13; 
+var sc_security="65e8a28a"; 
+</script>
+<script type="text/javascript" language="javascript" src="xcopy_windows_prompt_files/counter.js"></script>
+<noscript>
+<a href="http://www.statcounter.com/" target="_blank"><img  src="http://c14.statcounter.com/counter.php?sc_project=1515382&java=0&security=65e8a28a&invisible=1" alt="free stats" border="0"></a>
+</noscript>
+<!-- End of StatCounter Code -->
+</div>
+</div>
+<!--end frame-->
+</body></html>

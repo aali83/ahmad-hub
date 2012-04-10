@@ -1,0 +1,326 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+  <title>Cheat Sheet for the VI editor</title>
+</head><body>
+
+<center>
+<h1><code>vi</code> Cheat Sheet</h1>
+</center>
+
+<p>
+This document is a <b>vi</b> cheat sheet, designed to be kept nearby 
+while
+using the <b>vi</b> editor.  In general, <b>vi</b> commands follow the
+convention of "one from column A and one from column B", using the two
+tables below, <em>Operators</em> and <em>Operands</em>, as columns A and
+ B.
+
+</p><p>
+Numeric arguments may prefix any operator; the command is repeated the
+given number of times or until it fails.  Numeric arguments prefixing an
+operand execute the operand the given number of times, effectively just
+moving the cursor.  (Some versions of <b>vi</b>, such as that provided
+with AIX 5L, don't respond properly to numeric prefixes in front of some
+operands such as the <code>/</code> string search operand.)
+
+</p><p>
+</p><center>
+<table align="left">
+    <tbody><tr><th align="LEFT">Operators</th><th align="LEFT">Description
+
+
+    </th></tr><tr valign="TOP"><td><code><b>d</b></code> <em>operand</em>
+        </td><td>delete the <em>operand</em> into the (delete) buffer
+    </td></tr><tr valign="TOP"><td><code><b>p</b></code>
+        </td><td>paste the contents of the (delete) buffer after the 
+cursor
+    </td></tr><tr valign="TOP"><td><code><b>y</b></code> <em>operand</em>
+        </td><td>yank the <em>operand</em> into the (delete) buffer
+    </td></tr><tr valign="TOP"><td><code><b>i</b></code> <em>operand</em>
+        </td><td>inserts the <em>operand</em> (before current character)
+    </td></tr><tr valign="TOP"><td><code><b>a</b></code> <em>operand</em>
+        </td><td>appends the <em>operand</em> (insert after current 
+character)
+    </td></tr><tr valign="TOP"><td><code><b>r</b></code> <em>operand</em>
+        </td><td>replaces current character with <em>operand</em>
+    </td></tr><tr valign="TOP"><td><code><b>s</b></code> <em>operand</em>
+        </td><td>substitute the <em>operand</em> with typed-in text
+    </td></tr><tr valign="TOP"><td><code><b>c</b></code> <em>operand</em>
+        </td><td>change the <em>operand</em> to typed-in text
+    </td></tr><tr valign="TOP"><td><code><b>!</b></code> <em>operand</em>
+        </td><td>pass the <em>operand</em> to a (Unix) shell as standard
+ input;
+	    <br>standard output replaces the <em>operand</em>.
+
+    </td></tr><tr></tr>
+    <tr></tr>
+
+    <tr><th align="LEFT">Common Macros</th><th align="LEFT">Description
+    </th></tr><tr valign="TOP"><td><code><b>I</b></code>
+    	</td><td>insert at beginning of line (same as <b>^i</b>)
+    </td></tr><tr valign="TOP"><td><code><b>A</b></code>
+    	</td><td>append at end of line (same as <b>$a</b>)
+    </td></tr><tr valign="TOP"><td><code><b>D</b></code>
+    	</td><td>delete to end of line (same as <b>d$</b>)
+    </td></tr><tr valign="TOP"><td><code><b>C</b></code>
+    	</td><td>change to end of line (same as <b>c$</b>)
+    </td></tr><tr valign="TOP"><td><code><b>x</b></code>
+    	</td><td>delete one character (same as <b>dl</b>)
+    </td></tr><tr valign="TOP"><td><code><b>ZZ</b></code>
+    	</td><td>save and exit
+    </td></tr><tr valign="TOP"><td><code><b>:w</b></code> <em>filename</em>
+    	</td><td>save as <em>filename</em> without exiting
+    </td></tr><tr valign="TOP"><td><code><b>:q!</b></code>
+    	</td><td>quit immediately (without save)
+
+    </td></tr><tr></tr>
+    <tr></tr>
+
+    <tr><th align="left"><b>Miscellaneous</b>
+
+    </th></tr><tr valign="TOP"><td><code><b>R</b></code>
+    	</td><td>enter replace (overstrike) mode
+    </td></tr><tr valign="TOP"><td><code><b>o</b></code>
+    	</td><td>open line below current line
+    </td></tr><tr valign="TOP"><td><code><b>O</b></code>
+    	</td><td>open line above current line
+    </td></tr><tr valign="TOP"><td><code><b>"</b></code> <em>n</em>
+    	</td><td><em>n</em> is 0-9: delete buffers
+    </td></tr><tr valign="TOP"><td><code><b>"</b></code> <em>x</em>
+    	</td><td><em>x</em> is lowercase a-z: replace user buffer
+    </td></tr><tr valign="TOP"><td><code><b>"</b></code> <em>x</em>
+    	</td><td><em>x</em> is uppercase A-Z: append to user buffer
+    </td></tr><tr valign="TOP"><td><code><b>.</b></code>
+    	</td><td>perform last change again
+    </td></tr><tr valign="TOP"><td><code><b>u</b></code>
+    	</td><td>undo last change
+    </td></tr><tr valign="TOP"><td><code><b>U</b></code>
+    	</td><td>undo all changes to current line
+</td></tr></tbody></table>
+
+<table>
+    <tbody><tr><th align="LEFT">Operands</th><th align="LEFT">Description
+
+
+    </th></tr><tr valign="TOP"><td><code><b>h j k l</b></code>
+    	</td><td>left, down, up, right; one character/line at a time
+    </td></tr><tr valign="TOP"><td><code><b>w b e</b></code>
+    	</td><td>next <b>w</b>ord, <b>b</b>ack word, <b>e</b>nd of word
+    </td></tr><tr valign="TOP"><td><code><b>W B E</b></code>
+    	</td><td>(same as above, but ignores punctuation)
+    </td></tr><tr valign="TOP"><td><code><b>/</b></code><em>string</em>
+    	</td><td>search for <em>string</em> (use <b>?</b> for reverse 
+search)
+    </td></tr><tr valign="TOP"><td><code><b>n</b></code>
+    	</td><td>search for <em>string</em> again (see <code><b>/</b></code>,
+ above)
+    </td></tr><tr valign="TOP"><td><code><b>%</b></code>
+    	</td><td>find matching <b>( )</b>, <b>{ }</b>, or <b>[ ]</b>
+    </td></tr><tr valign="TOP"><td><code><b>( )</b></code>
+    	</td><td>beginning of current/previous sentence and beginning of 
+next sentence
+    </td></tr><tr valign="TOP"><td><code><b>{ }</b></code>
+    	</td><td>beginning of current/previous paragraph (two adjacent 
+newlines) and beginning of next paragraph
+	    (see also <b>set paragraphs</b>)
+    </td></tr><tr valign="TOP"><td><code><b>[[ ]]</b></code>
+    	</td><td>beginning of current/previous section and beginning of 
+next section
+	    (mostly user-defined; see also <b>set sections</b>)
+    </td></tr><tr valign="TOP"><td><em>line</em> <code><b>G</b></code>
+    	</td><td><b>g</b>oto particular line number (defaults to 
+end-of-file)
+    </td></tr><tr valign="TOP"><td><code><b>0 ^ $</b></code>
+    	</td><td>move to column 0, move to first non-whitespace, move to 
+end of line
+    </td></tr><tr valign="TOP"><td><code><b>f</b></code> <em>x</em>
+    	</td><td><b>f</b>orward to character <em>x</em> on same line 
+(inclusive)
+    </td></tr><tr valign="TOP"><td><code><b>t</b></code> <em>x</em>
+    	</td><td><b>t</b>o character <em>x</em> on same line (not 
+inclusive)
+    </td></tr><tr valign="TOP"><td><code><b>;</b></code>
+    	</td><td>last <b>f</b> or <b>t</b> again in the same direction
+    </td></tr><tr valign="TOP"><td><code><b>,</b></code>
+    	</td><td>last <b>f</b> or <b>t</b> again in the opposite direction
+
+    </td></tr><tr>
+    </tr><tr>
+
+    </tr><tr valign="TOP"><td><code><b>m</b></code> <em>x</em>
+    	</td><td>set mark <em>x</em> at current position
+    </td></tr><tr valign="TOP"><td><code><b>'</b></code> <em>x</em>
+    	</td><td>move to line containing mark <em>x</em>
+    </td></tr><tr valign="TOP"><td><code><b>`</b></code> <em>x</em>
+    	</td><td>move to exact position of mark <em>x</em>
+    </td></tr><tr valign="TOP"><td><code><b>''</b></code>
+    	</td><td>move to line of last jump point
+    </td></tr><tr valign="TOP"><td><code><b>``</b></code>
+    	</td><td>move to exact position of last jump point
+</td></tr></tbody></table>
+</center>
+
+<br clear="left">
+<p>
+<br>
+
+</p><p>
+Interesting examples of numeric prefixes would be
+<code><b>36i-*&lt;ESC&gt;</b></code>,
+<code><b>8i123456789-&lt;ESC&gt;</b></code>,
+and
+<code><b>20r_</b></code>.
+
+</p><p>
+</p><hr>
+
+<p>
+</p><h2>Ex (colon-mode) commands</h2>
+
+<p>
+In the following commands, <em>file</em> may be either a filename, or a
+shell command if prefixed with <code><b>!</b></code>.
+Filenames are <em>globbed</em> by the shell before <code><b>vi</b></code>
+uses them (shell wildcards are processed
+before the filenames are used).  Address ranges may be used immediately
+after the colon in the commands below.  Example address ranges are:
+
+</p><p>
+<table>
+    <tbody><tr><th align="left">Range
+    	</th><th align="left">Description
+
+    </th></tr><tr><td valign="TOP"> <code><b>1,$</b></code>
+    	</td><td valign="TOP"> From line 1 to the end of the file.
+    </td></tr><tr><td valign="TOP"> <code><b>10,20</b></code>
+    	</td><td valign="TOP"> From line 10 to line 20, inclusive.
+    </td></tr><tr><td valign="TOP"> <code><b>.,.+10</b></code>
+    	</td><td valign="TOP"> From the current line to current line + 10 
+(11 lines total).
+    </td></tr><tr><td valign="TOP"> <code><b>'a,'d</b></code>
+    	</td><td valign="TOP"> From the line containing mark <em>a</em> to 
+the line containing mark <em>d</em>.
+    </td></tr><tr><td valign="TOP"> <code><b>/from/,/to/</b></code>
+    	</td><td valign="TOP"> From the line containing "from" to the line 
+containing "to", inclusive.
+
+    </td></tr><tr>
+    </tr><tr>
+    </tr><tr>
+
+    </tr><tr><th colspan="2" align="left">Commands which change the file
+ being edited.
+    </th></tr><tr><td valign="TOP"> <code><b>:e</b></code> <em>filename</em>
+    	</td><td valign="TOP"> Change from the current file being edited to
+ <em>filename</em>.
+	     "<code><b>%</b></code>" means current file, and
+	     "<code><b>#</b></code>" means alternate file.
+	<br> Use <code><b>:e #</b></code> to edit the file most recently
+	     edited during the same session.
+    </td></tr><tr><td valign="TOP"> <code><b>:n</b></code> [<em>filename(s)</em>]
+    	</td><td valign="TOP"> Edits the next file from the command line.  
+With
+	optional list of filenames, changes command parameters and edits
+	the first file in the list.  Filenames are passed to the shell for
+	wildcard substitution.  Also consider command substitution:
+	<br><center><code><b>:n  `grep -l pattern *.c`</b></code>
+    </center></td></tr><tr><td valign="TOP"> <code><b>:args</b></code>
+    	</td><td valign="TOP"> Lists the files from the command line 
+(possibly
+	as modified by <code><b>:n</b></code>, above).
+    </td></tr><tr><td valign="TOP"> <code><b>:rew</b></code>
+    	</td><td valign="TOP"> Restarts editing at the first filename from 
+the
+	command line.
+
+    </td></tr><tr>
+    </tr><tr>
+    </tr><tr>
+
+    </tr><tr><th colspan="2" align="left">Commands which modify the text
+ buffer or
+    disk file being edited.
+    </th></tr><tr><td valign="TOP"> <code><b>:g/</b></code><em>RE</em><code><b>/cmd</b></code>
+    	</td><td valign="TOP"> Globally search for regular expression and 
+execute
+	<code><b>cmd</b></code> for each line containing the pattern.
+    </td></tr><tr><td valign="TOP"> <code><b>:s/</b></code><em>RE</em><code><b>/<em>string</em>/opt</b></code>
+    	</td><td valign="TOP"> Search-and-replace; <em>string</em> is the 
+replacement.
+	Use <code><b>opt</b></code> to specify options <b>c</b> (confirm),
+	<b>g</b> (globally on each line), and
+	<b>p</b> (print after making change).
+    </td></tr><tr><td valign="TOP"> <code><b>:w </b></code><em>file</em>
+    	</td><td valign="TOP"> Write the contents of the buffer to <em>file</em>.
+	If <em>file</em> starts with an exclamation mark, the filename is
+	interpreted as a shell command instead, and the buffer is piped
+	into the command as stdin.
+    </td></tr><tr><td valign="TOP"> <code><b>:r </b></code><em>file</em>
+    	</td><td valign="TOP"> Reads the contents of the file into the 
+current
+	buffer.  If <em>file</em> starts with an exclamation mark, the
+	filename is interpreted as a shell command instead, and the stdout
+	of the command is read into the buffer.
+
+    </td></tr><tr>
+    </tr><tr>
+    </tr><tr>
+
+    </tr><tr><th colspan="2" align="left">These commands control the 
+environment of
+	the <b>vi</b> session.
+    </th></tr><tr><td valign="TOP"> <code><b>:set </b></code><em>opt</em>
+    	</td><td valign="TOP"> Turns on boolean option <em>opt</em>.
+    </td></tr><tr><td valign="TOP"> <code><b>:set no</b></code><em>opt</em>
+    	</td><td valign="TOP"> Turns off boolean option <em>opt</em>.
+    </td></tr><tr><td valign="TOP"> <code><b>:set </b></code><em>opt=val</em>
+    	</td><td valign="TOP"> Sets option <em>opt</em> to <em>val</em>.
+    </td></tr><tr><td valign="TOP"> <code><b>:set </b></code><em>opt?</em>
+    	</td><td valign="TOP"> Queries the setting of option <em>opt</em>.
+
+    </td></tr><tr>
+    </tr><tr>
+    </tr><tr>
+
+    </tr><tr><th colspan="2" align="left">Miscellaneous commands.
+    </th></tr><tr><td valign="TOP"> <code><b>:abbr </b></code><em>string
+ phrase</em>
+    	</td><td valign="TOP"> Creates abbreviation <em>string</em> for the
+ phrase
+	<em>phrase</em>.  Abbreviations are replaced immediately as soon
+	as recognized during text or command input.  Use
+	<code><b>:unab string</b></code> to remove an abbreviation.
+    </td></tr><tr><td valign="TOP"> <code><b>:map </b></code><em>key 
+string</em>
+    	</td><td valign="TOP"> Creates a mapping from <em>key</em> to
+	<em>string</em>.  This is different from an abbreviation in two ways:
+	abbreviations are recognized as complete units only (for example, a
+	    word with surrounding whitespace) while mappings are based
+	    strictly on keystrokes, and
+	mappings can apply to function keys by using a pound-sign followed
+	    by the function key number, i.e. <em>#8</em> would map function
+	    key 8.  If the terminal doesn't have an <f8> key, the mapping
+	    can be invoked by typing "#8" directly (doesn't work in
+	    the AIX 5L version of <b>vi</b>).
+</f8></td></tr></tbody></table>
+
+</p><div>
+Here is an example of what my <code><b>.exrc</b></code> startup file in
+my home directory looks like:
+
+<p>
+<code><b>
+set report=1 shiftwidth=4 tabstop=8 wrapmargin=10<br>
+set ai bf exrc magic nomesg modelines showmode nowrapscan<br>
+map! #1 `x=%; echo ${x\%/*}/<br>
+</b></code>
+
+</p><p>
+Some other command settings are
+    <code>ignorecase</code> (<code>ic</code>),
+    <code>autowrite</code> (<code>aw</code>), and
+    <code>showmatch</code> (<code>sm</code>).
+
+<!--#include virtual="/FOOTER.html" -->
+</p></div></body></html>

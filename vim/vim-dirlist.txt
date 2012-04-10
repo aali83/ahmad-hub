@@ -1,0 +1,7 @@
+/usr/bin/vim.tiny	/* Stripped down version of vim (7.2.330) for emulating vi */
+/etc/vim	/* Contains gvimrc and vimrc startup settings files */
+/usr/local/bin/vim	/* Executable vim 7.3 launcher */
+/home/ahmad/.vimrc	/* Start up settings file for both vim & gvim */
+/etc/vim/vimrc		/* Start up settings file for vim */
+/usr/local/share/vim/vim73	/* Directory where vim 7.3 files are listed  (:echo $VIMRUNTIME) */
+/usr/share/vim/vim72	/*Directory where gvim files are located*/

@@ -1,0 +1,6 @@
+VIM Help Commands:
+++++++++++++++++++
+
+	- :help [command]
+	- :helpgrep [command]
+	- :cwin

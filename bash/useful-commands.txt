@@ -1,0 +1,5 @@
+* Computer Information.
+	cat /proc/cpuinfo		# displays cpu information.
+	cat /proc/meminfo		# displays memory information.
+	df 		# display mounted devices and information regarding them.
+	free -mt	#display the amount of free and used memory in the system.

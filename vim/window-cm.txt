@@ -1,0 +1,20 @@
+Window Commands: 
++++++++++++++++
+
+Window Resize:
+	- Ctrl+W	R				Move current split window down.
+	- Ctrl+W	W				Switch cursor to next split window.
+	- Ctrl+W	{#}_			Change current split window size to n# rows. 
+	- Ctrl+W	{#}|			Change current split window vertical alignment size to n# width.
+
+Create New Window:
+	- :{#}new [argument]		Create new split window, # specifies window size.
+	- :{#}enew [argument]		Create new window in current window, # specifies window size.
+
+Split Commands:
+	- :{#}split [argument]		Create new split window horizontally (duplicates current window if no argument supplied), # specifies window size. 
+	- :{#}vsplit [argument]		Create new split window vertically (duplicates current window if no argument supplied), # specifies window size. 
+
+Close Windows:
+	- Ctrl+x 1					Close all windows except current active window.
+	- Ctrl+x 0					Close current active window.

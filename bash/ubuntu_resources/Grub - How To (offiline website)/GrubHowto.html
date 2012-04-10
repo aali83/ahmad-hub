@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="index,nofollow">
+
+<title>GrubHowto - Community Ubuntu Documentation</title>
+<script type="text/javascript" src="GrubHowto_files/common.js"></script>
+
+<script type="text/javascript">
+<!--
+var search_hint = "Search";
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="GrubHowto_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="GrubHowto_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="GrubHowto_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="GrubHowto_files/projection.css">
+
+<!-- css only for MSIE browsers -->
+<!--[if IE]>
+   <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="/htdocs/ubuntunew/css/msie.css">
+<![endif]-->
+
+
+
+<link rel="Start" href="https://help.ubuntu.com/community/UserDocumentation">
+<link rel="Alternate" title="Wiki Markup" href="https://help.ubuntu.com/community/GrubHowto?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="https://help.ubuntu.com/community/GrubHowto?action=print">
+<link rel="Appendix" title="gnu-head.xpm.gz" href="https://help.ubuntu.com/community/GrubHowto?action=AttachFile&amp;do=view&amp;target=gnu-head.xpm.gz">
+<link rel="Search" href="https://help.ubuntu.com/community/FindPage">
+<link rel="Index" href="https://help.ubuntu.com/community/TitleIndex">
+<link rel="Glossary" href="https://help.ubuntu.com/community/WordIndex">
+<link rel="Help" href="https://help.ubuntu.com/community/HelpOnFormatting">
+</head><body dir="ltr" lang="en">
+
+<div id="round" class="roundme">
+<img id="topcap" alt="" src="GrubHowto_files/cap-top.png">
+<div id="layout" class="container clear-block">
+<div id="header">
+<div id="logo-floater">
+<h1><a href="http://help.ubuntu.com/" title="Ubuntu Documentation"><img alt="Ubuntu" id="logo" src="GrubHowto_files/logo.png"></a></h1>
+</div>
+
+<noscript>
+ <form action="http://www.google.com/cse" id="cse-search-box">
+   <div>
+     <input type="hidden" name="cx" value="004599128559784038176:vj_p0xo-nng" />
+     <input type="hidden" name="ie" value="UTF-8" />
+     <input type="text" name="q" size="27" />
+     <input type="submit" name="sa" value="Search" />
+   </div>
+ </form>
+</noscript>
+
+<script>
+ document.write('<form action="https://help.ubuntu.com/search.html" id="cse-search-box">');
+ document.write('  <div>');
+ document.write('    <input type="hidden" name="cof" value="FORID:9" />');
+ document.write('    <input type="hidden" name="cx" value="004599128559784038176:vj_p0xo-nng" />');
+ document.write('    <input type="hidden" name="ie" value="UTF-8" />');
+ document.write('    <input type="text" name="q" size="27" />');
+ document.write('    <input type="submit" name="sa" value="Search" />');
+ document.write('  </div>');
+ document.write('</form>');
+</script><form action="https://help.ubuntu.com/search.html" id="cse-search-box">  <div>    <input name="cof" value="FORID:9" type="hidden">    <input name="cx" value="004599128559784038176:vj_p0xo-nng" type="hidden">    <input name="ie" value="UTF-8" type="hidden">    <input name="q" size="27" type="text">    <input name="sa" value="Search" type="submit">  </div></form>
+
+<div id="sitename"><a href="https://help.ubuntu.com/community"><img src="GrubHowto_files/help-faq.png"><span>Community Documentation</span></a></div>
+</div> <!--header-->
+<ul id="loginbar"><li><a href="https://help.ubuntu.com/community/GrubHowto?action=login" id="login" rel="nofollow">Login to Edit</a></li></ul>
+
+
+<!--1-->
+<div id="page" dir="ltr" lang="en">
+
+<!--2-->
+
+<div id="breadcrumbs">
+<a href="https://help.ubuntu.com/">Ubuntu Documentation</a> &gt; <a href="https://help.ubuntu.com/community">Community Documentation</a> &gt; <a class="backlink" href="https://help.ubuntu.com/community/GrubHowto?action=fullsearch&amp;context=180&amp;value=linkto%3A%22GrubHowto%22" rel="nofollow" title="Click to do a full-text search for this title">GrubHowto</a>
+</div>
+
+
+<ul id="pagelocation">
+<li><a class="backlink" href="https://help.ubuntu.com/community/GrubHowto?action=fullsearch&amp;context=180&amp;value=linkto%3A%22GrubHowto%22" rel="nofollow" title="Click to do a full-text search for this title">GrubHowto</a></li>
+</ul>
+
+<!--3--><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><div><table style="margin: 0pt 0pt 1em 1em; background: rgb(241, 241, 237) none repeat scroll 0% 0%; float: right; font-size: 0.9em; width: 40%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"><tbody><tr>  <td style="padding: 0.5em;"><p class="line891"></p><div class="table-of-contents"><p class="table-of-contents-heading">Contents</p><ol><li><a href="#GRUB">GRUB</a><ol><li><a href="#Modifying%20boot%20options%20in%20GRUB">Modifying boot options in GRUB</a></li><li><a href="#Automagic%20Kernels%20List">Automagic Kernels List</a></li><li><a href="#Setting%20kernel%20parameters">Setting kernel parameters</a></li><li><a href="#If%20/boot%20is%20on%20another%20partition">If /boot is on another partition</a></li><li><a href="#Changing%20the%20Disk%20that%20Grub%20is%20installed%20to">Changing the Disk that Grub is installed to</a></li><li><a href="#Boot%20splash%20images">Boot splash images</a><ol><li><a href="#Manual%20configuration">Manual configuration</a></li><li><a href="#Splash%20Image%20with%20update-grub">Splash Image with update-grub</a></li></ol></li><li><a href="#Backup,%20Repairing%20and%20Reinstalling%20GRUB">Backup, Repairing and Reinstalling GRUB</a><ol><li><a href="#GUI">GUI</a></li><li><a href="#Command%20line">Command line</a></li></ol></li><li><a href="#Manually%20boot%20into%20a%20Linux%20OS">Manually boot into a Linux OS</a></li><li><a href="#Creating%20a%20boot%20floppy">Creating a boot floppy</a></li><li><a href="#Change%20the%20default%20operating%20system">Change the default operating system</a></li><li><a href="#Network%20booting">Network booting</a></li><li><a href="#Security">Security</a></li><li><a href="#Windows">Windows</a></li><li><a href="#More%20information">More information</a></li></ol></li><li><a href="#Other%20Languages">Other Languages</a></li></ol></div></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867"><img alt="IconsPage/important.png" class="attachment" src="GrubHowto_files/IconsPage.png" title="IconsPage/important.png"> <strong>Note: These directions do not apply to clean installs of Karmic -- Karmic uses <a href="https://help.ubuntu.com/community/Grub2">Grub2</a> <em>unless you upgraded from a previous version of Ubuntu.</em></strong> <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><p class="line867">
+</p><h1 id="GRUB">GRUB</h1>
+<span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><ul><li style="list-style-type: none;">GRUB
+is more than just a boot loader, it is also the worlds best boot
+manager, meaning it is best installed to the Master Boot Record of the
+first hard disk. That way GRUB will be the first thing that loads when
+the computer starts. It allows you to boot Linux directly or boot
+another boot loader which can then load its own operating system(s).
+You can have different operating systems, and versions of them, on the
+same or different hard drives. For example, if you have both Windows
+and Linux installed on a computer, GRUB would load before either of
+these and let you choose which one to boot. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span><p class="line862">You can also create a boot floppy with GRUB to use in case of emergency, <a href="https://help.ubuntu.com/community/GrubHowto/BootFloppy">GrubHowto/BootFloppy</a><br>
+ <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span>GRUB
+is Open Source software, the source code is open for anyone to inspect.
+From a security standpoint, you should only trust Open Source software.
+<span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p></li></ul><p class="line867"><img alt="IconsPage/important.png" class="attachment" src="GrubHowto_files/IconsPage.png" title="IconsPage/important.png">
+Make sure that you use grub with sudo or in a root shell. It is
+possible to start a grub shell as a regular user without the requisite
+privileges, the problem being that instead of receiving a "permission
+denied" error when executing a command grub will print bogus error
+messages, for example ones that suggest grub cannot find your hard
+disks. It's pretty frustrating to try to troubleshoot problems that
+don't really exist. <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span></p><p class="line867">
+</p><h2 id="Modifying boot options in GRUB">Modifying boot options in GRUB</h2>
+<span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span><p class="line867"><span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span></p><ul><li style="list-style-type: none;"><p class="line862">If
+you need to get into the grub menu to modify boot options or choose a
+different kernel, you need to press 'ESC' just after it starts.<br>
+ <span class="anchor" id="line-20"></span>By
+default you have to press 'ESC' within three seconds. If you want to
+increase this time limit, you can edit the grub configuration file
+/boot/grub/<strong>menu.lst</strong>, increasing the seconds in the TIMEOUT part.<br>
+Alternatively you could have the menu always come up at boot time. To
+do this, comment out 'hiddenmenu' by inserting a # at the beginning of
+the line.<br>
+ <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p><p class="line891"><img alt="IconsPage/IconNote.png" class="attachment" src="GrubHowto_files/IconsPage_002.png" title="IconsPage/IconNote.png">
+If the Ubuntu installer detected other operating systems on the disk
+during the installation, then the grub menu will be displayed by
+default and the timeout will be increased, so the step above will be
+unnecessary. <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span></p></li></ul><ul><li style="list-style-type: none;"><p class="line862">After pressing 'ESC' you will be presented with a list of kernels and operating systems that you can boot.<br>
+ <span class="anchor" id="line-25"></span>You can press an up or down arrow key to highlight a different kernel or operating system to boot.<br>
+ <span class="anchor" id="line-26"></span>For example, you might need to boot into 'recovery mode' to fix some problem with your operating system.<br>
+ <span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span></p><p class="line862">To modify the boot options <em>within</em> the grub menu, highlight the operating system you want to edit and press 'e'.<br>
+ <span class="anchor" id="line-30"></span>There you will be presented with lines starting with 'root', 'kernel', 'initrd', 'quiet' and 'savedefault'.<br>
+ <span class="anchor" id="line-31"></span>You may wish to make changes to any of these lines before booting.<br>
+ <span class="anchor" id="line-32"></span>Boot options can be appended to the end of the 'kernel' line, <a class="https" href="https://help.ubuntu.com/7.04/installation-guide/i386/boot-parms.html">Boot Parameters</a>.<br>
+ <span class="anchor" id="line-33"></span>To receive a more verbose boot process you can remove the 'quiet' line by highlighting it and pressing 'd' to remove that line.<br>
+ <span class="anchor" id="line-34"></span>You may also want to highlight the 'kernel' line press 'e' to edit and remove the word 'splash' from the end of the line.<br>
+ <span class="anchor" id="line-35"></span>After making any necessary modifications you can press 'b' to boot that operating system.<br>
+ <span class="anchor" id="line-36"></span>These modifications will not persist across reboots. <span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span></p></li></ul><p class="line867">
+</p><h2 id="Automagic Kernels List">Automagic Kernels List</h2>
+<span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><ul><li style="list-style-type: none;"><p class="line862">Ubuntu uses a script called <tt>update-grub</tt> to modify <tt>menu.lst</tt>. Whenever you install kernel updates from the repositories, <tt>update-grub</tt> is run to update the grub settings. It automatically detects all of the kernels you have in the <tt>/boot</tt> directory, and applies various global settings to each one. <br>
+ <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p><p class="line862">The relevant parts of <tt>menu.lst</tt> that <tt>update-grub</tt> looks at are the ones in between the "### BEGIN AUTOMAGIC KERNELS LIST" and "### END DEBIAN AUTOMAGIC KERNELS LIST" lines. <br>
+ <span class="anchor" id="line-43"></span>In this section of the menu.lst file, comments are preceded by at least two '#', e.g. '## this is a comment'.<br>
+ <span class="anchor" id="line-44"></span>Global options are after single '#', e.g. '# groot=(hd0,4)'.<br>
+ <span class="anchor" id="line-45"></span>The most common one to change is probably the groot option.  Change this if <tt>/boot</tt> resides on a different partition than <tt>/</tt> (root).  See the appropriate section on this page for more information about different <tt>/boot</tt> partitions.<br>
+ <span class="anchor" id="line-46"></span>Another common option is 'kopt=', which are kernel options applied to all kernels in the <tt>menu.lst</tt>, read the next section below. <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span></p></li></ul><p class="line867">
+</p><h2 id="Setting kernel parameters">Setting kernel parameters</h2>
+<span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span><ul><li style="list-style-type: none;"><p class="line862">In <tt class="backtick">/boot/grub/menu.lst</tt>, you will find a line like this: <span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span></p><pre># kopt=root=/dev/sda1 ro</pre><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><p class="line862">This looks like a comment, but do not remove the '# ' at the beginning. <img alt="/!\" src="GrubHowto_files/alert.png" title="/!\" height="15" width="15">  THIS IS IMPORTANT: <tt>grub</tt> sees this line as a comment and ignores it, but it is used as a configuration parameter by <tt>update-grub</tt> to generate the contents of the file that <tt>grub</tt> will read at boot. <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span></p><p class="line862">If
+you require additional kernel parameters (for example, if someone has
+asked you to test booting with certain parameters in order to
+troubleshoot a problem), add them to the end of the line, for example
+to add <tt class="backtick">noapic</tt>: <span class="anchor" id="line-58"></span><tt>#&nbsp;kopt=root=/dev/sda1&nbsp;ro&nbsp;noapic</tt> <span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span>After editing the file, run: <span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span></p><pre>sudo update-grub</pre><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span></li></ul><ul><li style="list-style-type: none;">Note that you can temporarily add kernel parameters at the grub boot menu also, by pressing 'e ' and editing the kernel line. <span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></li></ul><p class="line867">
+</p><h2 id="If /boot is on another partition">If /boot is on another partition</h2>
+<span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><ul><li style="list-style-type: none;"><p class="line862">If <tt>/boot</tt>
+is mounted on another partition, it will mean that your Linux kernel
+will be restricted to the area of your hard disk where the /boot
+partition is located. That is a good way to overcome GRUB Error 18 in
+older computers.<br>
+ A Separate /boot partition is also needed when the root file system will be encrypted.<br>
+ <span class="anchor" id="line-71"></span></p></li></ul><ul><li style="list-style-type: none;"><p class="line862">If
+your operating system was installed that way by the Ubuntu installer
+then it should work perfectly without the user needing to do anything.<br>
+ <span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span></p><p class="line862">If
+for some reason you need to create your own separate /boot partition at
+some later time after the installation of your Ubuntu operating system,
+you must create an entry in your /etc/fstab file for it. You will also
+need to edit your /boot/grub/menu.lst file with the correct partition
+number in the groot line, see 'Automagic Kernels List' further up in
+this page.<br>
+ <span class="anchor" id="line-74"></span>If you do those two things correctly then when you use <tt>update-grub</tt>, you should never run into any problems. <br>
+ <span class="anchor" id="line-75"></span>A
+Separate /boot partition is not very good for people who want to boot
+more than one Linux operating system because iit is tricky to get more
+than one Linux to share the same Separate /boot partition peacefully.
+For that, you need a 'Dedicated GRUB Partition', which contains only
+GRUB files and not necessarily any Linux kernels, and is operating
+system independant. <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span></p></li></ul><p class="line867">
+</p><h2 id="Changing the Disk that Grub is installed to">Changing the Disk that Grub is installed to</h2>
+<span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><ul><li style="list-style-type: none;">Consider
+the following problem: You have two hard drives, one SATA (/dev/sda),
+the other PATA (/dev/hda). Your BIOS seems to think that PATA drives
+should always be booted in preference of SATA drives, but you want to
+boot from the SATA drive. Grub can work around this problem. <span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></li></ul><p class="line874">Finding groot <span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span></p><ul><li style="list-style-type: none;"><p class="line862">First, figure out what Grub names the drives.  This is listed in <tt>/boot/grub/device.map</tt>.  There you will find a table of Grub-style names (e.g. <em>(hd0)</em>) and Linux-style names (e.g. <em>/dev/hda/</em>).  You need to know what drive and partition <tt>/boot</tt> is on.  To find where <tt>/boot</tt> is, use <tt>df</tt>: <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span></p><pre>df /boot</pre><span class="anchor" id="line-87"></span><p class="line862">This should tell you the Linux-style partition name where <tt>/boot</tt> is.  Then simply match it with the Grub-style name in <tt>device.map</tt>.  This is what <em>groot</em> should be. <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span></p></li></ul><p class="line874">Example: <span class="anchor" id="line-90"></span></p><ul><li style="list-style-type: none;"><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><pre>$ df /boot
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda5              46M   15M   30M  33% /boot
+
+$ cat /boot/grub/device.map
+(hd0)   /dev/hda
+(hd1)   /dev/sda</pre><span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><p class="line862">So <em>groot</em> should be (hd1,4) (note that Grub partition numbers are always one less than Linux numbers).  Thus in <tt>/boot/grub/menu.lst</tt>, <span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span></p><pre>## default grub root device
+## e.g. groot=(hd0,0)
+# groot=(hd1,4)</pre><span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span></li></ul><p class="line874">Finding kernel root <span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span></p><ul><li style="list-style-type: none;"><p class="line862">The other piece of the puzzle is telling the kernel where <tt>/</tt> is.  Simply find out where <tt>/</tt> is mounted. <span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span></p><pre>df /</pre><span class="anchor" id="line-114"></span><p class="line862">This is what <em>root</em> should be in <em>kopt</em>. <span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span></p></li></ul><p class="line874">Example: <span class="anchor" id="line-117"></span></p><ul><li style="list-style-type: none;"><span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span><pre>$ df /
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda3              14G  8.3G  5.0G  63% /</pre><span class="anchor" id="line-122"></span><p class="line891"><tt>/</tt> is on <tt>/dev/hda3</tt>.
+Because this is going to be passed to the kernel, there's no need to
+translate to Grub notation. The 'ro' causes the kernel to mount the
+drive read-only initially; later the drive will be remounted
+read/write. This is generally done so <tt>fsck</tt> can run on <tt>/</tt> at bootup. <span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span></p><pre>## default kernel options
+## default kernel options for automagic boot options
+## If you want special options for specifiv kernels use kopt_x_y_z
+## where x.y.z is kernel version. Minor versions can be omitted.
+## e.g. kopt=root=/dev/hda1 ro
+# kopt=root=/dev/sda3 ro</pre><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><p class="line862">In summary, <em>groot</em> is where <tt>/boot</tt> is, and is what Grub sees that drive as.  <em>kopt=root</em> is where <tt>/</tt> is, and is what the kernel sees that drive as. <span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span></p></li></ul><p class="line867">
+</p><h2 id="Boot splash images">Boot splash images</h2>
+<span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span><ul><li style="list-style-type: none;"><p class="line862">Grub
+allows an image to be displayed behind the menu. You can obtain a set
+of images with the package "grub-splashimages", or you can make your
+own. The images must be 640x480 pixels, contain no more than 16 colors
+(but a smaller number like 12 works better to allow some different
+colors for the menu text), and be in gzipped xpm format. The GIMP can
+be used to resize (Image -&gt; Scale Image...), reduce colors (Image
+-&gt; Mode -&gt; Indexed...), and can save to .xpm.gz files. <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p></li></ul><p class="line867">
+</p><h3 id="Manual configuration">Manual configuration</h3>
+<span class="anchor" id="line-139"></span><ul><li style="list-style-type: none;">After creating a splash image, add a line like <span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span><pre>splashimage=(hd0,4)/boot/grub/splash.xpm.gz</pre><span class="anchor" id="line-143"></span>to your menu.lst file.  A useful trick is to make a symlink to the actual image named splash.xpm.gz. <span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span><pre>cd /boot/grub
+sudo ln -s my_image.xpm.gz splash.xpm.gz</pre><span class="anchor" id="line-148"></span>Grub
+loads the image from the disk upon boot; it is not stored in the MBR.
+If you use a symlink, you will not have to edit menu.lst and reinstall
+grub to change the image, you just have to change the symlink. Make
+sure any symlink does not point to a file on another partition, for
+instance if you have /boot on a separate partition. <span class="anchor" id="line-149"></span><p class="line862">Here is an image of the GNU by Peter Gerwinski: <a class="attachment" href="https://help.ubuntu.com/community/GrubHowto?action=AttachFile&amp;do=view&amp;target=gnu-head.xpm.gz" title="attachment:gnu-head.xpm.gz">gnu-head.xpm.gz</a> <span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span></p></li></ul><p class="line867">
+</p><h3 id="Splash Image with update-grub">Splash Image with update-grub</h3>
+<span class="anchor" id="line-152"></span><ul><li style="list-style-type: none;"><p class="line862">The command <strong>update-grub</strong> will automatically pick up /boot/grub/splash.xpm.gz and configure the <em>menu.lst</em> file for you. It will take care of the correct hdX and partition number [no need to type in (hd0,4)]. <span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span></p><pre>sudo apt-get install grub-splashimages
+sudo ln -s /boot/grub/splashimages/my_image.xpm.gz /boot/grub/splash.xpm.gz
+sudo update-grub</pre><span class="anchor" id="line-158"></span><p class="line891"><strong>Note:</strong> replace the my_image.xpm.gz with the one that you want. <span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span></p></li></ul><p class="line867">
+</p><h2 id="Backup, Repairing and Reinstalling GRUB">Backup, Repairing and Reinstalling GRUB</h2>
+<span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><ul><li style="list-style-type: none;">To make a backup a copy of the existing menu.lst file   use: <span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><pre>cp /boot/grub/menu.lst /boot/grub/menu.lst.old</pre><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span>You can try re-installing the grub using the Ubuntu Live CD, in two different ways. <span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span></li></ul><p class="line867">
+</p><h3 id="GUI">GUI</h3>
+<span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><ol type="1"><li>Boot your computer up with Ubuntu CD <span class="anchor" id="line-174"></span></li><li>Go through all the process until you reach "[!!!] Disk Partition" <span class="anchor" id="line-175"></span></li><li>Select Manual Partition <span class="anchor" id="line-176"></span></li><li><p class="line862">Mount your appropriate linux partions <tt>&nbsp;/&nbsp;/boot&nbsp;swap&nbsp;.....&nbsp;</tt> <span class="anchor" id="line-177"></span></p></li><li><p class="line891"><strong>DO NOT FORMAT THEM.</strong> <span class="anchor" id="line-178"></span></p></li><li>Finish the manual partition <span class="anchor" id="line-179"></span></li><li>Say "Yes" when it asks you to save the changes <span class="anchor" id="line-180"></span></li><li>It will give you errors saying that "the system couldn't install ....." after that <span class="anchor" id="line-181"></span></li><li>Ignore them, keep select "continue" until you get back to the Ubuntu installation menu <span class="anchor" id="line-182"></span></li><li>Jump to "Install Grub ...." <span class="anchor" id="line-183"></span></li><li>Once it is finished, just restart your computer <span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span></li></ol><p class="line867">
+</p><h3 id="Command line">Command line</h3>
+<span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span><ol type="1"><li>Boot your computer up with Ubuntu CD <span class="anchor" id="line-188"></span></li><li>Open a terminal window or switch to a tty. <span class="anchor" id="line-189"></span></li><li><p class="line862">Go <a class="nonexistent" href="https://help.ubuntu.com/community/SuperUser">SuperUser</a> (that is, type "sudo -s"). Enter root passwords as necessary. <span class="anchor" id="line-190"></span></p></li><li>Type "grub" <span class="anchor" id="line-191"></span></li><li>Type
+"find /boot/grub/stage1". You'll get a response like "(hd0,1)". Use
+whatever your computer spits out for the following lines. <span class="anchor" id="line-192"></span></li><li>Type "root (hd0,1)", or whatever your hard disk + boot partition numbers are for Ubuntu. <span class="anchor" id="line-193"></span></li><li>Type
+"setup (hd0)", to install GRUB to MBR, or "setup (hd0,1)" or whatever
+your hard disk + partition nr is, to install GRUB to a partition. <span class="anchor" id="line-194"></span></li><li>Quit grub by typing "quit". <span class="anchor" id="line-195"></span></li><li>Reboot and remove the bootable CD. <span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span></li></ol><p class="line867"><img alt="IconsPage/IconNote.png" class="attachment" src="GrubHowto_files/IconsPage_002.png" title="IconsPage/IconNote.png"> If you can't boot into any of your Linux OSs: <span class="anchor" id="line-198"></span><br>
+First, you need to get a grub prompt (grub&gt;) somehow. So what you can do is: <span class="anchor" id="line-199"></span></p><ul><li>Use a rescue disk, like Super Grub Disk, from which you can boot into your OS, or press the “c” key to get a GRUB prompt.  <span class="anchor" id="line-200"></span></li><li><p class="line862">Use your Live *ubuntu CD. Boot into the LiveCD.  Now get a terminal and proceed exactly as in Case 1, starting with <strong>sudo grub</strong> to get a GRUB prompt.  Note: grub is not included with 9.10 Ubuntu LiveCD <span class="anchor" id="line-201"></span><span class="anchor" id="line-202"></span></p></li></ul><p class="line867">
+</p><h2 id="Manually boot into a Linux OS">Manually boot into a Linux OS</h2>
+<span class="anchor" id="line-203"></span><ul><li style="list-style-type: none;">These
+are the same 3 methods you see in a menu.lst, except in menu.lst you
+have “title” lines and you don’t need the boot command (since it’s
+implied). <span class="anchor" id="line-204"></span><span class="anchor" id="line-205"></span><p class="line891"><strong>Method #1</strong>: Chainload <span class="anchor" id="line-206"></span>To chainload Linux which is on (hdx,y): <span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span><span class="anchor" id="line-211"></span></p><pre>grub&gt;  root  (hdx,y)
+grub&gt;  chainloader +1
+grub&gt;  boot</pre><span class="anchor" id="line-212"></span>Note:  Windows is always booted by chainloading <span class="anchor" id="line-213"></span>Note:  To chainload, GRUB must first be installed in the OS’s root partition.  See Installing GRUB. So, run the commands:   <span class="anchor" id="line-214"></span><span class="anchor" id="line-215"></span><span class="anchor" id="line-216"></span><pre>grub&gt; root (hdx,y), grub&gt; setup (hdx,y)</pre><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span><p class="line891"><strong>Method #2</strong>: Use the specific kernel-initrd commands (as in a full menu.lst), ending with the boot command.<br>
+<br>
+ <span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span></p><p class="line891"><strong>Method #3</strong>:  Configfile <span class="anchor" id="line-222"></span>This almost always works!  Example:  To boot into Kubuntu on sdb3 (= (hd1,2)), type <span class="anchor" id="line-223"></span><span class="anchor" id="line-224"></span><span class="anchor" id="line-225"></span></p><pre>grub&gt;  configfile  (hd1,2)/boot/grub/menu.lst    # you’ll get the boot menu on sdb3</pre><span class="anchor" id="line-226"></span><span class="anchor" id="line-227"></span></li></ul><p class="line867">
+</p><h2 id="Creating a boot floppy">Creating a boot floppy</h2>
+<span class="anchor" id="line-228"></span><span class="anchor" id="line-229"></span><ul><li style="list-style-type: none;"><p class="line862">You can use grub to create a boot floppy. See <a href="https://help.ubuntu.com/community/GrubHowto/BootFloppy">/BootFloppy</a> <span class="anchor" id="line-230"></span><span class="anchor" id="line-231"></span></p></li></ul><p class="line867">
+</p><h2 id="Change the default operating system">Change the default operating system</h2>
+<span class="anchor" id="line-232"></span><span class="anchor" id="line-233"></span><ul><li style="list-style-type: none;"><p class="line862">By default, Grub in Ubuntu boots Ubuntu by default. If you wish to change this to another operating system, see <a href="https://help.ubuntu.com/community/GrubHowto/ChangeDefaultOS">/ChangeDefaultOS</a> <span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span></p></li></ul><p class="line867">
+</p><h2 id="Network booting">Network booting</h2>
+<span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span><ul><li style="list-style-type: none;">If you use LTSP or Edubuntu, you may want to boot from your network card. <span class="anchor" id="line-238"></span><span class="anchor" id="line-239"></span><p class="line862">Specific network cards need a specifc rom to boot from. To find which one you need, run <tt>lsmod</tt> and then search for your floppy. Then go to www.rom-o-matic.com and get the appropriate rom. <span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span></p><p class="line862">Edit <tt class="backtick">/boot/grub/menu.lst</tt> and add the following before <tt>###&nbsp;BEGIN&nbsp;AUTOMAGIC&nbsp;KERNELS&nbsp;LIST</tt> or after <tt>###&nbsp;END&nbsp;DEBIAN&nbsp;AUTOMAGIC&nbsp;KERNELS&nbsp;LIST</tt>, otherwise your changes will be wiped out by security updates, etc. <span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><span class="anchor" id="line-244"></span><span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span></p><pre>title LTSP
+root (hd0,2)
+kernel /boot/(rom you get from rom-o-matic)</pre><span class="anchor" id="line-247"></span><span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span></li></ul><p class="line867">
+</p><h2 id="Security">Security</h2>
+<span class="anchor" id="line-250"></span><span class="anchor" id="line-251"></span><ul><li style="list-style-type: none;"><p class="line862">By
+editing the boot command in grub, root access can be gained without the
+need of a password. To avoid this, edit the part "## password ['--md5']
+passwd" of <tt class="backtick">/boot/grub/menu.lst</tt>: <span class="anchor" id="line-252"></span><span class="anchor" id="line-253"></span><span class="anchor" id="line-254"></span></p><pre>password yourfancyplaintextpassword</pre><span class="anchor" id="line-255"></span>Insert
+the password of your choice. To prevent normal users to read this
+password, you should also remove read permission for these: <span class="anchor" id="line-256"></span><span class="anchor" id="line-257"></span><span class="anchor" id="line-258"></span><pre>sudo chmod o-r /boot/grub/menu.lst</pre><span class="anchor" id="line-259"></span><p class="line862">You can also use an md5 password, more info in the <a class="http" href="http://www.gentoo.org/doc/en/security/security-handbook.xml?part=1&amp;chap=2">Gentoo Security Handbook</a>. <span class="anchor" id="line-260"></span><span class="anchor" id="line-261"></span></p></li></ul><p class="line867">
+</p><h2 id="Windows">Windows</h2>
+<span class="anchor" id="line-262"></span><span class="anchor" id="line-263"></span><p class="line874">See : <span class="anchor" id="line-264"></span><span class="anchor" id="line-265"></span></p><ul><li><p class="line891"><a href="https://help.ubuntu.com/community/WindowsDualBoot">WindowsDualBoot</a> <span class="anchor" id="line-266"></span></p></li><li><p class="line891"><a href="https://help.ubuntu.com/community/RecoveringUbuntuAfterInstallingWindows">RecoveringUbuntuAfterInstallingWindows</a> <span class="anchor" id="line-267"></span><span class="anchor" id="line-268"></span></p></li></ul><p class="line867">
+</p><h2 id="More information">More information</h2>
+<span class="anchor" id="line-269"></span><ul><li><p class="line862">The official <a class="http" href="http://www.gnu.org/software/grub/manual/html_node/index.html">GNU GRUB manual</a> has a "DOS/Windows" chapter with hints on setting up dual-boot systems. <span class="anchor" id="line-270"></span><span class="anchor" id="line-271"></span></p></li><li class="gap"><p class="line862">Illustrated Dual Boot Site has a <a class="http" href="http://users.bigpond.net.au/hermanzone/p15.htm">GRUB Page</a> which has a lot of information about GRUB in Ubuntu. <span class="anchor" id="line-272"></span><span class="anchor" id="line-273"></span></p></li><li class="gap"><p class="line891"><a class="http" href="http://www.howtogeek.com/howto/ubuntu/reinstall-ubuntu-grub-bootloader-after-windows-wipes-it-out/">Reinstall Ubuntu Grub Bootloader After Windows Wipes it Out</a> <span class="anchor" id="line-274"></span><span class="anchor" id="line-275"></span></p></li><li class="gap"><p class="line891"><a class="http" href="http://www.gnu.org/software/grub/manual/grub.html#Installing-GRUB-using-grub_002dinstall">Installing GRUB using grub-install</a> <span class="anchor" id="line-276"></span><span class="anchor" id="line-277"></span></p></li><li class="gap"><p class="line891"><a class="http" href="http://linuxmint.com/wiki/index.php/How_to_repair_your_grub">How To Repair your GRUB</a> <span class="anchor" id="line-278"></span><span class="anchor" id="line-279"></span></p></li><li class="gap"><p class="line891"><a href="https://help.ubuntu.com/community/HowtoPartition">HowtoPartition</a> <span class="anchor" id="line-280"></span><span class="anchor" id="line-281"></span></p></li><li class="gap"><p class="line891"><a class="http" href="http://www.supergrubdisk.org/wiki/Howto_Boot_Windows_without_problems#Grub_solution">http://www.supergrubdisk.org/wiki/Howto_Boot_Windows_without_problems#Grub_solution</a> <span class="anchor" id="line-282"></span><span class="anchor" id="line-283"></span></p></li><li class="gap"><p class="line891"><a class="http" href="http://www.supergrubdisk.org/wiki/AutoSuperGrubDisk">Auto SuperGrub Disk</a> <span class="anchor" id="line-284"></span><span class="anchor" id="line-285"></span></p></li></ul><p class="line867">
+</p><h1 id="Other Languages">Other Languages</h1>
+<span class="anchor" id="line-286"></span><p class="line867"><a href="https://help.ubuntu.com/community/ComoGrub">ComoGrub</a> (Spanish) <span class="anchor" id="line-287"></span><span class="anchor" id="line-288"></span></p><p class="line867"></p><hr><p class="line874"> <span class="anchor" id="line-289"></span><a href="https://help.ubuntu.com/community/CategoryBootAndPartition">CategoryBootAndPartition</a> <span class="anchor" id="line-290"></span><span class="anchor" id="bottom"></span></p></div><p id="pageinfo" class="info" dir="ltr" lang="en">GrubHowto  (last edited 2010-01-11 01:56:02 by <span title="https://login.launchpad.net/+id/nRbcBXW @ c-67-181-61-3.hsd1.ca.comcast.net[67.181.61.3]"><a class="interwiki" href="https://launchpad.net/%7Ekeepitsimpleengineer" title="https://login.launchpad.net/+id/nRbcBXW @ c-67-181-61-3.hsd1.ca.comcast.net[67.181.61.3]">keepitsimpleengr</a></span>)</p>
+
+<ul class="pagelinks">
+<li><a class="nbinfo" href="https://help.ubuntu.com/community/GrubHowto?action=info" rel="nofollow">Page History</a></li>
+</ul>
+
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<hr width="550px">
+
+  <div id="ubuntulinks">
+	<p>
+	      The material on this wiki is available under a free license, see <a href="https://help.ubuntu.com/community/License">Copyright / License</a> for details<br><b>You</b> can contribute to this wiki, see <a href="https://help.ubuntu.com/community/WikiGuide">Wiki Guide</a> for details
+	</p><br>
+  </div>
+<script src="GrubHowto_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1018242-7";
+urchinTracker();
+__utmSetVar('UbuntuWiki');
+</script>
+<script type="text/javascript">
+function togglebar() {
+    obj = document.getElementById('editbar');
+    obj2 = document.getElementById('showbarspan');
+    obj3 = document.getElementById('showbar');
+    if (obj.style.position == 'fixed') {
+        obj.style.position = 'static';
+	obj3.style.bottom = '0';
+        obj2.innerHTML = 'Show';
+    } else {
+        obj.style.position = 'fixed';
+        obj2.innerHTML = 'Hide';
+        obj3.style.bottom = '25px';
+    }
+    return false;
+}
+</script>
+
+
+</div> <!-- footer -->
+</div> <!-- layout -->
+<img id="bottomcap" alt="" src="GrubHowto_files/cap-bottom.png">
+</div> <!-- round -->
+</body></html>
