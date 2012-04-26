@@ -1,6 +1,10 @@
 Vim Search Command Keys
 +++++++++++++++++++++++
 
+tabdo %s/'pattern'/'replace'/g 			search across multiple files, can be used for other commands as well.
+bufdo 											same as tabdo but works with the entire contents of the buffer
+
+
 %							Perform the command on all lines.
 s							Short form for the :substitute command.
 \<word\>					\< tells Vim that is the beginning of the word.
